@@ -1,6 +1,7 @@
 
 import fetch from 'node-fetch'
 import fs from "fs"
+import Canvas from "discord-canvas"
 
 let handler = async (m, { conn, args, text, usedPrefix, command }) => {
 let frep = { contextInfo: { externalAdReply: {title: global.wm, body: global.author, sourceUrl: snh, thumbnail: fs.readFileSync('./thumbnail.jpg')}}}
@@ -102,12 +103,56 @@ case 'sompret':
 case 'tai':
 case 'tolol':
 case 'udik':
+// await conn.sendFile(m.chat, pp, 'propil.jpg', caption, m , false, { contextInfo: { mentionedJid: [who] } })
+
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
-let name = await conn.getName(who)
-let pp = await conn.profilePictureUrl(who).catch(_ => './src/avatar_contact.png')
-let angka = Math.floor(Math.random() * 100)
+    let { exp, limit, level, role, money, lastclaim, lastweekly, registered, regTime, age, banned, pasangan } = global.db.data.users[who]
+    let { min, xp, max } = xpRange(level, global.multiplier)
+    let name = await conn.getName(who)
+    let pp = await conn.profilePictureUrl(who).catch(_ => './src/avatar_contact.png')
+    if (typeof global.db.data.users[who] == "undefined") {
+      global.db.data.users[who] = {
+        exp: 0,
+        limit: 10,
+        lastclaim: 0,
+        registered: false,
+        name: conn.getName(m.sender),
+        age: -1,
+        regTime: -1,
+        afk: -1,
+        afkReason: '',
+        banned: false,
+        level: 0,
+        lastweekly: 0,
+        role: 'Warrior V',
+        autolevelup: false,
+        money: 0,
+        pasangan: "",
+      }
+     }
+     let math = max - xp
+     let angka = Math.floor(Math.random() * 100)
 let caption = `Tingkat ke *${args[0]}an* \nAtas nama ${name} @${who.split("@")[0]} \nAdalah Sebesar *${angka}%*`
-await conn.sendFile(m.chat, pp, 'propil.jpg', caption, m , false, { contextInfo: { mentionedJid: [who] } })
+
+let wel = await new Canvas.Welcome()
+  .setUsername(`${name}`)
+  .setDiscriminator(`${exp} Exp`)
+  .setMemberCount(`Money ${money}`)
+  .setGuildName(`${global.author}`)
+  .setAvatar(`${pp}`)
+  .setColor("border", "#000000")
+  .setColor("username-box", "#000000")
+  .setColor("discriminator-box", "#000000")
+  .setColor("message-box", "#000000")
+  .setColor("title", "#FFFFFF")
+  .setColor("avatar", "#000000")
+  .setBackground("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSF7c3n7snGnpzS676fXaU2yxSjGsFNrCURXw&usqp=CAU")
+  .toAttachment();
+  
+  this.sendHydrated(m.chat, caption, wm + '\n\n' + botdate, wel.toBuffer(), null, null, user.split`@`[0], 'Nomor', [
+      ['Menu', '/menu'],
+    ], null, false, { mentions: [who] })
+    
 break
             }
        }

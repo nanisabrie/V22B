@@ -1,4 +1,4 @@
-let handler = async (m, { conn }) => conn.reply(m.chat, `
+let handler = async (m) => m.reply(`
 *Pertanyaan:* ${m.text}
 *Jawaban:* ${(10).getRandom()} ${['detik', 'menit', 'jam', 'hari', 'minggu', 'bulan', 'tahun', 'dekade', 'abad'].getRandom()} lagi ...
   `.trim(), m, m.mentionedJid ? {
