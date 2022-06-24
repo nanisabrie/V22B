@@ -16,7 +16,7 @@ let caption = `
 *Negatif:* ${x.negatif}
 `
 await conn.sendHydrated(m.chat, caption, wm, x.thumbnail, null, null, null, null, [
-      ['Ceksifat', usedPrefix + 'ceksifat ' + nama + ' & ' + pasangan],
+      ['Ceksifat', usedPrefix + 'ceksifat ' + nama + '|' + pasangan],
       ['Menu', usedPrefix + 'menu']
     ], m)
 

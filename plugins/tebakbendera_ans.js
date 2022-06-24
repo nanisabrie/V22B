@@ -7,9 +7,8 @@ export async function before(m) {
     this.tebakbendera = this.tebakbendera ? this.tebakbendera : {}
     if (!(id in this.tebakbendera))
         return conn.sendButton(m.chat, 'Soal itu telah berakhir', author, null, buttontebakbendera, m)
-    if (m.quoted.id == this.tebakbendera[id][0].id) {
-        const isSurr = /menyerah|nyerah|surrender|surr|pass/i // tambahin sendiri
-        const isSurrender = isSurr.exec(m.text)
+    if (m.text.id == this.tebakbendera[id][0].id) {
+        let isSurrender = /^((me)?nyerah|surr?ender)$/i.test(m.text)
         if (isSurrender) {
             clearTimeout(this.tebakbendera[id][3])
             delete this.tebakbendera[id]
