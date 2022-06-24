@@ -7,7 +7,8 @@ export async function before(m) {
         return !0
     let room = this.game[id]
     let text = m.text.toLowerCase().replace(/[^\w\s\-]+/, '')
-    let isSurrender = /^((me)?nyerah|surr?ender)$/i.test(m.text)
+    const isSurr = /menyerah|nyerah|surrender|surr|pass/i // tambahin sendiri
+        const isSurrender = isSurr.exec(m.text)
     if (!isSurrender) {
         let index = room.jawaban.indexOf(text)
         if (index < 0) {
