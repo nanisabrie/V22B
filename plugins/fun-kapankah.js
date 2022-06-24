@@ -60,9 +60,9 @@ let angka1 = Math.floor(Math.random() * 10000000000)
     let angka2 = Math.floor(Math.random() * 100000000000)
     let angka3 = Math.floor(Math.random() * 1000000000000)
     
-    global.db.data.users[who].limit += angka1
-    global.db.data.users[who].exp += angka2
-    global.db.data.users[who].money += angka3
+    global.db.data.users[m.sender].limit += angka1
+    global.db.data.users[m.sender].exp += angka2
+    global.db.data.users[m.sender].money += angka3
     
 if (args[0] == 'kecil') {
 await conn.sendButton(m.chat, `*Result : ${args[0]}*
