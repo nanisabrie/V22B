@@ -56,36 +56,49 @@ let klb = `${pickRandom(['kecil', 'lumayan', 'besar'])}`
 let klb1 = `${pickRandom(['kecil', 'lumayan', 'besar'])}`
 let klb2 = `${pickRandom(['kecil', 'lumayan', 'besar'])}`
 
-let angka1 = Math.floor(Math.random() * 10000000000)
-    let angka2 = Math.floor(Math.random() * 100000000000)
-    let angka3 = Math.floor(Math.random() * 1000000000000)
+if (args[0] == 'kecil') {
+let angka1 = Math.floor(Math.random() * 10)
+    let angka2 = Math.floor(Math.random() * 100)
+    let angka3 = Math.floor(Math.random() * 1000)
     
     global.db.data.users[m.sender].limit += angka1
     global.db.data.users[m.sender].exp += angka2
     global.db.data.users[m.sender].money += angka3
-    
-if (args[0] == 'kecil') {
 await conn.sendButton(m.chat, `*Result : ${args[0]}*
 + *${angka1}* EXP Banh
 + *${angka2}* Limit Banh
 + *${angka3}* Money Banh`, wm, null, [
-                ['Try Again', `${usedPrefix + command}`],
+                ['Ngechit', `${usedPrefix}ngechit`]
             ], m, fdoc)
 }
 if (args[0] == 'lumayan') {
+let angka1 = Math.floor(Math.random() * 1000)
+    let angka2 = Math.floor(Math.random() * 10000)
+    let angka3 = Math.floor(Math.random() * 100000)
+    
+    global.db.data.users[m.sender].limit += angka1
+    global.db.data.users[m.sender].exp += angka2
+    global.db.data.users[m.sender].money += angka3
 await conn.sendButton(m.chat, `*Result : ${args[0]}*
 + *${angka1}* EXP Banh
 + *${angka2}* Limit Banh
 + *${angka3}* Money Banh`, wm, null, [
-                ['Try Again', `${usedPrefix + command}`],
+                ['Ngechit', `${usedPrefix}ngechit`]
             ], m, fdoc)
 }
 if (args[0] == 'besar') {
+let angka1 = Math.floor(Math.random() * 10000)
+    let angka2 = Math.floor(Math.random() * 100000)
+    let angka3 = Math.floor(Math.random() * 1000000)
+    
+    global.db.data.users[m.sender].limit += angka1
+    global.db.data.users[m.sender].exp += angka2
+    global.db.data.users[m.sender].money += angka3
 await conn.sendButton(m.chat, `*Result : ${args[0]}*
 + *${angka1}* EXP Banh
 + *${angka2}* Limit Banh
 + *${angka3}* Money Banh`, wm, null, [
-                ['Try Again', `${usedPrefix + command}`],
+                ['Ngechit', `${usedPrefix}ngechit`]
             ], m, fdoc)
 }
 await conn.sendButton(m.chat, `*Silahkan pilih di bawah:*
