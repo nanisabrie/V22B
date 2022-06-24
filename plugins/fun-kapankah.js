@@ -15,8 +15,93 @@ return m.reply(`
   mentions: m.mentionedJid
 } : {})
 }
+
+if (command == 'akankah') {
+return m.reply(`
+*Pertanyaan:* ${m.text}
+*Jawaban:* ${['Ya', 'Mungkin iya', 'Mungkin', 'Mungkin tidak', 'Tidak', 'Tidak mungkin'].getRandom()}
+  `.trim(), null, m.mentionedJid ? {
+  mentions: m.mentionedJid
+} : {})
 }
-handler.command = handler.help = ['kapankah']
+
+if (command == 'siapakah') {
+let ps = groupMetadata.participants.map(v => v.id)
+    let a = ps.getRandom()
+    m.reply(`${toM(a)} Dia bang.🗿`, null, {
+        mentions: [a]
+    })
+}
+
+if (command == 'mengapa') {
+return m.reply(`
+*Pertanyaan:* ${m.text}
+*Jawaban:* ${['Karena anda ganteng', 'Karna lo wibu :[', 'karna lo didikan wahyu', 'Karna gw gk tau', 'Lo punya jin', 'Tidak mungkin'].getRandom()}
+  `.trim(), null, m.mentionedJid ? {
+  mentions: m.mentionedJid
+} : {})
+}
+
+if (command == 'bisakah') {
+return m.reply(`
+*Pertanyaan:* ${m.text}
+*Jawaban:* ${['Ya', 'Mungkin iya', 'Mungkin', 'Mungkin tidak', 'Tidak', 'Tidak mungkin'].getRandom()}
+  `.trim(), null, m.mentionedJid ? {
+  mentions: m.mentionedJid
+} : {})
+}
+
+if (command == 'misteribox') {
+let klb = `${pickRandom(['kecil', 'lumayan', 'besar'])}`
+let klb1 = `${pickRandom(['kecil', 'lumayan', 'besar'])}`
+let klb2 = `${pickRandom(['kecil', 'lumayan', 'besar'])}`
+
+let angka1 = Math.floor(Math.random() * 10000000000)
+    let angka2 = Math.floor(Math.random() * 100000000000)
+    let angka3 = Math.floor(Math.random() * 1000000000000)
+    
+    global.db.data.users[who].limit += angka1
+    global.db.data.users[who].exp += angka2
+    global.db.data.users[who].money += angka3
+    
+if (args[0] == 'kecil') {
+await conn.sendButton(m.chat, `*Result : ${args[0]}*
++ *${angka1}* EXP Banh
++ *${angka2}* Limit Banh
++ *${angka3}* Money Banh`, wm, null, [
+                ['Try Again', `${usedPrefix + command}`],
+            ], m, fdoc)
+}
+if (args[0] == 'lumayan') {
+await conn.sendButton(m.chat, `*Result : ${args[0]}*
++ *${angka1}* EXP Banh
++ *${angka2}* Limit Banh
++ *${angka3}* Money Banh`, wm, null, [
+                ['Try Again', `${usedPrefix + command}`],
+            ], m, fdoc)
+}
+if (args[0] == 'besar') {
+await conn.sendButton(m.chat, `*Result : ${args[0]}*
++ *${angka1}* EXP Banh
++ *${angka2}* Limit Banh
++ *${angka3}* Money Banh`, wm, null, [
+                ['Try Again', `${usedPrefix + command}`],
+            ], m, fdoc)
+}
+await conn.sendButton(m.chat, `*Silahkan pilih di bawah:*
+  ${command}`, wm, null, [
+                ['🎁 Box A', `${usedPrefix + command} ${klb}`],
+                ['🎁 Box B', `${usedPrefix + command} ${klb1}`],
+                ['🎁 Box C', `${usedPrefix + command} ${klb2}`]
+            ], m, fdoc)
+}
+
+}
+handler.command = handler.help = ['kapankah', 'akankah', 'siapakah', 'mengapa', 'bisakah', 'misteribox']
 handler.tags = ['kerang']
 
 export default handler
+
+function pickRandom(list) {
+     return list[Math.floor(Math.random() * list.length)]
+  }
