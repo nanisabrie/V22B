@@ -24,7 +24,6 @@ let ps = groupMetadata.participants.map(v => v.id)
     
 if (command == 'jodohku') {
 let ps = groupMetadata.participants.map(v => v.id)
-let name = await conn.getName(m.sender)
     let a = ps.getRandom()
     let b
     do b = ps.getRandom()
@@ -34,7 +33,7 @@ let name = await conn.getName(m.sender)
         mentions: [a, b]
     })
     */
-    let caption = `*Ciee...* ${name.split("@")[0]} ❤️ ${toM(b)}`
+    let caption = `*Ciee...* ${m.sender.split("@")[0]} ❤️ ${toM(b)}`
     await conn.sendButton(m.chat, caption, wm, null, [['jodohnya', `${usedPrefix}jodohnya`],['jodohku', `${usedPrefix}jodohku`]], m, { mentions: conn.parseMention(caption) })
     }
     
