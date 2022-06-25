@@ -17,7 +17,7 @@ await conn.sendButton(m.chat, `*Result:*
 }
 
 }
-handler.command = handler.help = ['ssc']
+handler.command = handler.help = ['sspng']
 handler.tags = ['random']
 
 export default handler
