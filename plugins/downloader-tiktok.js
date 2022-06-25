@@ -2,7 +2,13 @@ import fetch from 'node-fetch'
 import { tiktokdl } from '@bochilteam/scraper'
 
 let handler = async (m, { conn, args, text, usedPrefix, command }) => {
-if (!args[0]) throw `Use example ${usedPrefix}${command} https://www.tiktok.com/@omagadsus/video/7025456384175017243`
+if (!args[0]) throw `Use example ${usedPrefix}${command} https://vt.tiktok.com/ZSwWCk5o/`
+let buttons = [
+	{ buttonText: { displayText: 'To Mp3' }, buttonId: `${usedPrefix}tomp3` },
+	{ buttonText: { displayText: 'With Wm' }, buttonId: `${usedPrefix}tiktokwm ${args[0]}` },
+	{ buttonText: { displayText: 'No Wm' }, buttonId: `${usedPrefix}tiktoknowm ${args[0]}` }
+	]
+let err = `Link mesti kek gini bang https://vt.tiktok.com/ZSwWCk5o/`
 if (command == 'tiktok') {
     const { author: { nickname }, video, description } = await tiktokdl(args[0])
     const url = video.no_watermark || video.no_watermark2 || video.no_watermark_raw
@@ -12,20 +18,18 @@ let caption = `*TIKTOK DOWNLOADER*
 *Description:* ${description}
 
 _©${global.wm}_`
-	let buttons = [
-	{ buttonText: { displayText: 'To Mp3' }, buttonId: `${usedPrefix}tomp3` },
-	{ buttonText: { displayText: 'With Wm' }, buttonId: `${usedPrefix}tiktokwm ${args[0]}` },
-	{ buttonText: { displayText: 'No Wm' }, buttonId: `${usedPrefix}tiktoknowm ${args[0]}` }
-	]
 	conn.sendMessage(m.chat, { video: { url: url }, caption: caption , footer: await shortUrl(url), buttons }, { quoted: m })
+} else if (e) {
+throw err
 }
 
 if (command == 'tiktokwm') {
 let linkwm = `https://api.lolhuman.xyz/api/tiktokwm?apikey=9b817532fadff8fc7cb86862&url=${args[0]}`
 let caption2 = `*TIKTOK WITH WM*
 _©${global.wm}_`
-	let buttons2 = [{ buttonText: { displayText: 'To Mp3' }, buttonId: `${usedPrefix}tomp3` }]
-	conn.sendMessage(m.chat, { video: { url: linkwm }, caption: caption2 , footer: await shortUrl(`${args[0]}`), buttons2 }, { quoted: m })
+	conn.sendMessage(m.chat, { video: { url: linkwm }, caption: caption2 , footer: await shortUrl(`${args[0]}`), buttons }, { quoted: m })
+} else if (e) {
+throw err
 }
 
 if (command == 'tiktoknowm') {
@@ -38,8 +42,9 @@ let caption3 = `*TIKTOK NO WM*
 *Description:* ${x.description}
 
 _©${global.wm}_`
-	let buttons3 = [{ buttonText: { displayText: 'To Mp3' }, buttonId: `${usedPrefix}tomp3` }]
-	conn.sendMessage(m.chat, { video: { url: x.link }, caption: caption3 , footer: await shortUrl(x.link), buttons3 }, { quoted: m })
+	conn.sendMessage(m.chat, { video: { url: x.link }, caption: caption3 , footer: await shortUrl(x.link), buttons }, { quoted: m })
+} else if (e) {
+throw err
 }
 
 }
