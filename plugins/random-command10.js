@@ -10,10 +10,7 @@ if (command == 'sspng') {
 if (!args[0]) throw `Contoh:\n${usedPrefix + command} https://google.com`
 let f = await fetch(`https://shot.screenshotapi.net/screenshot?&url=${args[0]}`)
 let x = await f.json()
-await conn.sendButton(m.chat, `*Result:*
-  ${command}`, wm, x.screenshot, [
-                ['Next', `${usedPrefix + command}`]
-            ], m, fdoc)
+await conn.sendFile(m.chat, x.screenshot, 'hasil.png', 'Nihh, kan?', m)
 }
 
 }
