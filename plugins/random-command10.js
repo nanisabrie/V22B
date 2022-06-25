@@ -19,14 +19,14 @@ if (command == 'sspng') {
 if (!args[0]) throw `Contoh:\n${usedPrefix + command} https://google.com`
 let f = await fetch(`https://shot.screenshotapi.net/screenshot?&url=${args[0]}`)
 let x = await f.json()
-await conn.sendFile(m.chat, x.screenshot, 'image.png', wm, m)
+await conn.sendFile(m.chat, x.screenshot, 'ss.png', wm, m)
 }
 
 if (command == 'catboys') {
 if (args[0] == 'baka') {
 let f = await fetch(`https://api.catboys.com/baka`)
 let x = await f.json()
-await conn.sendFile(m.chat, x.url, 'image.png', wm, m)
+await conn.sendFile(m.chat, x.url, 'out.gif', m, false, { mimetype: 'image/gif', thumbnail: Buffer.alloc(0) })
 }
 if (args[0] == 'img') {
 let f = await fetch(`https://api.catboys.com/img`)
@@ -130,7 +130,7 @@ let x = await f.json()
 try {
 await conn.sendFile(m.chat, x.url, 'image.png', wm, m)
 } catch {
-await conn.sendFile(m.chat, x.url, 'image.gif', wm, m)
+await conn.sendFile(m.chat, x.url, 'out.gif', m, false, { mimetype: 'image/gif', thumbnail: Buffer.alloc(0) })
 }
 await conn.sendButton(m.chat, `*Silahkan pilih di bawah:*
   ${command}`, wm, res, [
