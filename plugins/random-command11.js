@@ -154,7 +154,7 @@ if (!text) throw `Contoh penggunaan ${usedPrefix}${command} anjing`
 let f = await fetch(`https://betabotz-api.herokuapp.com/api/search/sticker?q=${text}&apikey=BetaBotz`)
 let x = await f.json()
 let url = x.result
-await conn.sendFile(m.chat, url.getRandom(), 'sticker.webp', '', m)
+await conn.sendFile(m.chat, url.getRandom(), 'sticker.webp', '', m, { asSticker: true })
 
 await conn.sendButton(m.chat, `*Mau Lagi Gak?*
 Pencet di bawah bang ☺️`, author, null, [
@@ -293,9 +293,102 @@ await conn.sendButton(m.chat, `*Result:*
             ], m, fdoc)
 }
 
+if (command == 'asupan') {
+if (!args[0]) {
+	const sections = [
+    {
+	title: "Theme",
+	rows: [
+	{title: "asupan", rowId: usedPrefix + 'asupan asupan'},
+	{title: "bocil", rowId: usedPrefix + 'asupan bocil'},
+	{title: "cecan", rowId: usedPrefix + 'asupan cecan'},
+	{title: "euni", rowId: usedPrefix + 'asupan euni'},
+	{title: "gheayubi", rowId: usedPrefix + 'asupan gheayubi'},
+	{title: "hijaber", rowId: usedPrefix + 'asupan hijaber'},
+	{title: "rikagusriani", rowId: usedPrefix + 'asupan rikagusriani'},
+	{title: "santuy", rowId: usedPrefix + 'asupan santuy'},
+	{title: "ukhty", rowId: usedPrefix + 'asupan ukhty'}
+	]
+    }
+]
+
+const listMessage = {
+  text: `⚡ Silakan pilih tema di tombol di bawah...\n*Ketik ulang *${usedPrefix + command}* teks anda untuk mengubah teks lagi`,
+  footer: global.wm,
+  title: `⎔───「 ${command} 」───⎔`,
+  buttonText: `☂️ Tema Disini ☂️`,
+  sections
+}
+conn.sendMessage(m.chat, listMessage, fdoc)
+}
+
+if (args[0] == 'asupan') {
+let res = `https://betabotz-api.herokuapp.com/api/asupan/asupan?apikey=BetaBotz`
+await conn.sendButton(m.chat, `*Result:* ${command}
+`, wm, res, [
+                ['Next', `${usedPrefix + command}`]
+            ], m, fdoc)
+            }
+if (args[0] == 'bocil') {
+let res = `https://betabotz-api.herokuapp.com/api/asupan/bocil?apikey=BetaBotz`
+await conn.sendButton(m.chat, `*Result:* ${command}
+`, wm, res, [
+                ['Next', `${usedPrefix + command}`]
+            ], m, fdoc)
+            }
+if (args[0] == 'cecan') {
+let res = `https://betabotz-api.herokuapp.com/api/asupan/cecan?apikey=BetaBotz`
+await conn.sendButton(m.chat, `*Result:* ${command}
+`, wm, res, [
+                ['Next', `${usedPrefix + command}`]
+            ], m, fdoc)
+            }
+if (args[0] == 'euni') {
+let res = `https://betabotz-api.herokuapp.com/api/asupan/euni?apikey=BetaBotz`
+await conn.sendButton(m.chat, `*Result:* ${command}
+`, wm, res, [
+                ['Next', `${usedPrefix + command}`]
+            ], m, fdoc)
+            }
+if (args[0] == 'gheayubi') {
+let res = `https://betabotz-api.herokuapp.com/api/asupan/gheayubi?apikey=BetaBotz`
+await conn.sendButton(m.chat, `*Result:* ${command}
+`, wm, res, [
+                ['Next', `${usedPrefix + command}`]
+            ], m, fdoc)
+            }
+if (args[0] == 'hijaber') {
+let res = `https://betabotz-api.herokuapp.com/api/asupan/hijaber?apikey=BetaBotz`
+await conn.sendButton(m.chat, `*Result:* ${command}
+`, wm, res, [
+                ['Next', `${usedPrefix + command}`]
+            ], m, fdoc)
+            }
+if (args[0] == 'rikagusriani') {
+let res = `https://betabotz-api.herokuapp.com/api/asupan/rikagusriani?apikey=BetaBotz`
+await conn.sendButton(m.chat, `*Result:* ${command}
+`, wm, res, [
+                ['Next', `${usedPrefix + command}`]
+            ], m, fdoc)
+            }
+if (args[0] == 'santuy') {
+let res = `https://betabotz-api.herokuapp.com/api/asupan/santuy?apikey=BetaBotz`
+await conn.sendButton(m.chat, `*Result:* ${command}
+`, wm, res, [
+                ['Next', `${usedPrefix + command}`]
+            ], m, fdoc)
+            }
+if (args[0] == 'ukhty') {
+let res = `https://betabotz-api.herokuapp.com/api/asupan/ukhty?apikey=BetaBotz`
+await conn.sendButton(m.chat, `*Result:* ${command}
+`, wm, res, [
+                ['Next', `${usedPrefix + command}`]
+            ], m, fdoc)
+            }
+}
 
 }
-handler.command = handler.help = ['umma', 'dlanoboy', 'animesearch', 'animesearchv2', 'mangasearch', 'mangasearchv2', 'kusonime2', 'anoboy', 'storyanime', 'sfilesearch', 'stikwa', 'apk', 'gbwa', 'stiktele', 'ytmp4dl', 'ytmp3dl', 'playmp4', 'tiktok3', 'mediafire3', 'twittervid', 'twitterimg']
+handler.command = handler.help = ['umma', 'dlanoboy', 'animesearch', 'animesearchv2', 'mangasearch', 'mangasearchv2', 'kusonime2', 'anoboy', 'storyanime', 'sfilesearch', 'stikwa', 'apk', 'gbwa', 'stiktele', 'ytmp4dl', 'ytmp3dl', 'playmp4', 'tiktok3', 'mediafire3', 'twittervid', 'twitterimg', 'asupan']
 handler.tags = ['random']
 
 export default handler
