@@ -24,14 +24,13 @@ if (command == 'tiktokwm') {
 let caption2 = `*TIKTOK WITH WM*
 _©${global.wm}_`
 	let buttons2 = [{ buttonText: { displayText: 'To Mp3' }, buttonId: `${usedPrefix}tomp3` }]
-	conn.sendMessage(m.chat, { video: { url: `https://api.lolhuman.xyz/api/tiktokwm?apikey=9b817532fadff8fc7cb86862&url=${args[0]}` }, caption: caption2 , footer: await shortUrl(url), buttons2 }, { quoted: m })
+	conn.sendMessage(m.chat, { video: { url: `https://api.lolhuman.xyz/api/tiktokwm?apikey=9b817532fadff8fc7cb86862&url=${args[0]}` }, caption: caption2 , footer: await shortUrl(`${args[0]}`), buttons2 }, { quoted: m })
 }
 
 if (command == 'tiktoknowm') {
 let link = await fetch(`https://api.lolhuman.xyz/api/tiktok?apikey=9b817532fadff8fc7cb86862&url=${args[0]}`)
-let has = link.json()
+let has = await link.json()
 let x = has.result
-
 let caption3 = `*TIKTOK NO WM*
 *Title:* ${x.title}
 *Description:* ${x.description}
