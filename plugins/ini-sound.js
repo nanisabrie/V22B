@@ -1,4 +1,5 @@
 let handler = async (m, { conn, text, usedPrefix, command }) => {
+if (command == 'sound') {
 if (!text) throw `Contoh:
 ${usedPrefix + command} 2
 
@@ -99,14 +100,25 @@ ptt: true
 } else if (e) {
 throw `Error`
 }
+}
+
+//VN 3
+if (command == 'ringtone') {
+let vn = await fetch(`https://hansxd.nasihosting.com/sound/sound${text}.mp3`)
+let x = await vn.json()
+await conn.sendFile(m.chat, x.result[0].audio, 'song.mp3', null, m, true, {
+type: 'audioMessage', 
+ptt: true 
+})
+}
 
 }
-handler.help = ['sound <angka>']
+handler.command = handler.help = ['sound', 'ringtone']
 handler.tags = ['random']
-handler.command = /^(sound)$/i
 
 export default handler
 
 function isNumber(x) {
     return !isNaN(x)
 }
+
