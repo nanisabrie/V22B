@@ -38,12 +38,7 @@ let caption = `*YOUR PROFILE*
 *🧬 XP:* TOTAL ${exp} (${exp - min} / ${xp}) [${math <= 0 ? `Siap untuk *${usedPrefix}levelup*` : `${math} XP lagi untuk levelup`}]
 *📨 Terdaftar:* ${registered ? 'Ya (' + new Date(regTime).toLocaleString() + ')' : 'Tidak'} ${lastclaim > 0 ? '\n*⏱️Terakhir Klaim:* ' + new Date(lastclaim).toLocaleString() : ''}\n\n Ketik ${usedPrefix}inv untuk melihat Inventory RPG`
 //conn.sendFile(m.chat, pp, 'propil.jpg', caption, m , false, { contextInfo: { mentionedJid: [who, pasangan] } })
-
-conn.sendHydrated(m.chat, caption, wm + '\n\n' + botdate, pp, gcwangsaf, 'Link Group', who.split`@`[0], 'Nomor', [
-      ['Menu', '/menu'],
-      ['Owner', '/owner'],
-      ['Test', '/ping']
-    ], m, { mentions: conn.parseMention(caption) })
+await conn.sendButton(m.chat, caption, wm, pp, [['Menu', `${usedPrefix}menu`],['Owner', `${usedPrefix}owner`]], m, { mentions: conn.parseMention(caption) })
 }
 
 handler.help = ['profile'].map(v => v + ' <url>')
