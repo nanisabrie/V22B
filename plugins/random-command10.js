@@ -184,9 +184,8 @@ if (command == 'lmsea') {
 if (!text) throw `Contoh:\n${usedPrefix + command} https://google.com`
 let res = await fetch(`https://imsea.herokuapp.com/api/1?q=${text}`)
 let ran = res.results
-let img = ran.getRandom()
 await conn.sendButton(m.chat, `*Result:*
-  ${res.image_name}`, wm, img, [
+  ${res.image_name}`, wm, ran.getRandom(), [
                 ['Next', `${usedPrefix + command} ${text}`]
             ], m, fdoc)
 }
