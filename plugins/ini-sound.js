@@ -113,7 +113,7 @@ throw `Error`
 if (command == 'ringtone') {
 let vn = await fetch(`https://hansxd.nasihosting.com/sound/sound${text}.mp3`)
 let x = await vn.json()
-await conn.sendFile(m.chat, x.result[0].audio, 'song.mp3', null, m, true, {
+await conn.sendFile(m.chat, `${x.result[0].audio}`, 'song.mp3', null, m, true, {
 type: 'audioMessage', 
 ptt: true 
 })

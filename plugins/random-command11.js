@@ -18,7 +18,7 @@ await conn.sendButton(m.chat, `*Result:*
 *Like.:* ${x.result.like}
 *Link.:* ${x.result.media[0]}
 `, wm, null, [
-                ['Get Picture', `${usedPrefix}get ${x.result.media[0]}`]
+                ['Get', `${usedPrefix}get ${x.result.media[0]}`]
             ], m, fdoc)
 }
 
@@ -51,7 +51,7 @@ let x = await f.json()
 await conn.sendButton(m.chat, `*Result:*
 *Title:* ${x.result[0].judul}
 *Link:* ${x.result[0].link}
-`, wm, x.result[0].thumbnail, [
+`, wm, `${x.result[0].thumbnail}`, [
                 ['Menu', `${usedPrefix}menu`]
             ], m, fdoc)
 }
@@ -65,7 +65,7 @@ await conn.sendButton(m.chat, `*Result:*
 *Link:* ${x.result[0].url}
 *Title:* ${x.result[0].mal_id}
 *Synopsis:* ${x.result[0].synopsis}
-`, wm, x.result[0].image_url, [
+`, wm, `${x.result[0].image_url}`, [
                 ['Menu', `${usedPrefix}menu`]
             ], m, fdoc)
 }
@@ -77,7 +77,7 @@ let x = await f.json()
 await conn.sendButton(m.chat, `*Result:*
 *Title:* ${x.result[0].judul}
 *Link:* ${x.result[0].link}
-`, wm, x.result[0].thumbnail, [
+`, wm, `${x.result[0].thumbnail}`, [
                 ['Menu', `${usedPrefix}menu`]
             ], m, fdoc)
 }
@@ -91,7 +91,7 @@ await conn.sendButton(m.chat, `*Result:*
 *Link:* ${x.result[0].url}
 *Title:* ${x.result[0].mal_id}
 *Synopsis:* ${x.result[0].synopsis}
-`, wm, x.result[0].image_url, [
+`, wm, `${x.result[0].image_url}`, [
                 ['Menu', `${usedPrefix}menu`]
             ], m, fdoc)
 }
@@ -109,7 +109,7 @@ await conn.sendButton(m.chat, `*Result:*
 *link:* ${x.result.link}
 *durasi:* ${x.result.durasi}
 *desk:* ${x.result.desk}
-`, wm, x.result.thumb, [
+`, wm, `${x.result.thumb}`, [
                 ['Menu', `${usedPrefix}menu`]
             ], m, fdoc)
 }
@@ -121,7 +121,7 @@ let x = await f.json()
 await conn.sendButton(m.chat, `*Result:*
 *Title:* ${x.result[0].judul}
 *Link:* ${x.result[0].link}
-`, wm, x.result[0].thumb, [
+`, wm, `${x.result[0].thumb}`, [
                 ['Next', `${usedPrefix + command}`]
             ], m, fdoc)
 }

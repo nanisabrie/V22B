@@ -3,7 +3,7 @@ import fetch from 'node-fetch'
 let handler = async(m, { conn, usedPrefix, text, args, command }) => {
 if (command == 'caribokep') {
 if (!text) throw `Contoh penggunaan ${usedPrefix}${command} japan`
-  let json = await fetch(`https://bx-hunter.herokuapp.com/api/xvideosearch?query=${text}&apikey=FuckBitch`)
+  let json = await fetch(`https://bx-hunter.herokuapp.com/api/xvideosearch?query=${text}&apikey=dno8pZJW`)
   let jsons = await json.json()
         let caption = `*⎔┉━「 ${command} 」━┉⎔*`
         for (let x of jsons.result) {
@@ -16,7 +16,7 @@ Link: ${x.link}
     }
     if (command == 'caribokep1') {
 if (!text) throw `Contoh penggunaan ${usedPrefix}${command} japan`
-  let json = await fetch(`https://bx-hunter.herokuapp.com/api/pornhubscraper?query=${text}&apikey=FuckBitch`)
+  let json = await fetch(`https://bx-hunter.herokuapp.com/api/pornhubscraper?query=${text}&apikey=dno8pZJW`)
   let jsons = await json.json()
         let caption = `*⎔┉━「 ${command} 」━┉⎔*`
         for (let x of jsons.result) {
@@ -30,7 +30,7 @@ link: ${x.link}
     }
     if (command == 'dlbokep') {
     if (!text) throw `Contoh penggunaan ${usedPrefix}${command} link Xvideos`
-  let json = await fetch(`https://bx-hunter.herokuapp.com/api/xvideodetail?url=${text}&apikey=FuckBitch`)
+  let json = await fetch(`https://bx-hunter.herokuapp.com/api/xvideodetail?url=${text}&apikey=dno8pZJW`)
   let jsons = await json.json()
   let x = jsons.result
 conn.sendFile(m.chat, x.files.high, 'asupan.mp4', x.title, m)
