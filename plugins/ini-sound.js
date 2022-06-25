@@ -111,7 +111,9 @@ throw `Error`
 
 //VN 3
 if (command == 'ringtone') {
-let vn = await fetch(`https://hansxd.nasihosting.com/sound/sound${text}.mp3`)
+if (!text) throw `Contoh:
+${usedPrefix + command} black cover`
+let vn = await fetch(`https://fatiharridho.herokuapp.com/api/search/ringtone?query=${text}`)
 let x = await vn.json()
 await conn.sendFile(m.chat, `${x.result[0].audio}`, 'song.mp3', null, m, true, {
 type: 'audioMessage', 

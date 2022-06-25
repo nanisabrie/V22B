@@ -1,9 +1,10 @@
 import fetch from 'node-fetch'
 
 let handler = async(m, { conn, usedPrefix, text, args, command }) => {
-if (command == 'caribokep') {
+
+    if (command == 'caribokep') {
 if (!text) throw `Contoh penggunaan ${usedPrefix}${command} japan`
-  let json = await fetch(`https://bx-hunter.herokuapp.com/api/xvideosearch?query=${text}&apikey=dno8pZJW`)
+  let json = await fetch(`https://betabotz-api.herokuapp.com/api/search/xvideos?query=${text}&apikey=BetaBotz`)
   let jsons = await json.json()
         let caption = `*⎔┉━「 ${command} 」━┉⎔*`
         for (let x of jsons.result) {
@@ -14,12 +15,27 @@ Link: ${x.link}
 `}
         return m.reply(caption)
     }
-    if (command == 'caribokep1') {
+   
+  if (command == 'caribokep2') {
 if (!text) throw `Contoh penggunaan ${usedPrefix}${command} japan`
-  let json = await fetch(`https://bx-hunter.herokuapp.com/api/pornhubscraper?query=${text}&apikey=dno8pZJW`)
+  let json = await fetch(`https://betabotz-api.herokuapp.com/api/search/xnxx?query=${text}&apikey=BetaBotz`)
   let jsons = await json.json()
         let caption = `*⎔┉━「 ${command} 」━┉⎔*`
         for (let x of jsons.result) {
+        caption += `
+Judul *${x.title}*
+Info: ${x.info}
+Link: ${x.link}
+`}
+        return m.reply(caption)
+    }
+    
+    if (command == 'caribokep3') {
+if (!text) throw `Contoh penggunaan ${usedPrefix}${command} japan`
+  let json = await fetch(`https://betabotz-api.herokuapp.com/api/search/pornhub?query=${text}&apikey=BetaBotz`)
+  let jsons = await json.json()
+        let caption = `*⎔┉━「 ${command} 」━┉⎔*`
+        for (let x of jsons.result.results) {
         caption += `
 Judul *${x.title}*
 views: ${x.views}
