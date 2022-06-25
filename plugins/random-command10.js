@@ -15,19 +15,7 @@ await conn.sendButton(m.chat, `*Silahkan pilih di bawah:*
             ], m, fdoc)
 }
 
-if (command == 'sspng') {
-if (!args[0]) throw `Contoh:\n${usedPrefix + command} https://google.com`
-let f = await fetch(`https://shot.screenshotapi.net/screenshot?&url=${args[0]}`)
-let x = await f.json()
-await conn.sendFile(m.chat, x.screenshot, 'ss.png', wm, m)
-}
-
 if (command == 'catboys') {
-if (args[0] == 'baka') {
-let f = await fetch(`https://api.catboys.com/baka`)
-let x = await f.json()
-await conn.sendFile(m.chat, x.url, 'out.gif', m, false, { mimetype: 'image/gif', thumbnail: Buffer.alloc(0) })
-}
 if (args[0] == 'img') {
 let f = await fetch(`https://api.catboys.com/img`)
 let x = await f.json()
@@ -52,12 +40,10 @@ await conn.sendButton(m.chat, `*Silahkan pilih di bawah:*
             ], m, fdoc)
 }
 await conn.sendButton(m.chat, `*Silahkan pilih di bawah:*
-${usedPrefix + command} baka
 ${usedPrefix + command} img
 ${usedPrefix + command} 8ball
 ${usedPrefix + command} catboy
 `, wm, null, [
-                ['BAKA', `${usedPrefix + command} baka`],
                 ['IMG', `${usedPrefix + command} img`],
                 ['8BALL', `${usedPrefix + command} 8ball`]
             ], m, fdoc)
@@ -127,19 +113,24 @@ if (!args[0]) throw `Contoh:\n${usedPrefix + command} baka
 
 let f = await fetch(`https://nekos.best/api/v2/${args[0]}`)
 let x = await f.json()
-try {
+if (args[0] == 'neko') {
 await conn.sendFile(m.chat, x.url, 'image.png', wm, m)
-} catch {
-await conn.sendFile(m.chat, x.url, 'out.gif', m, false, { mimetype: 'image/gif', thumbnail: Buffer.alloc(0) })
 }
+if (args[0] == 'waifu') {
+await conn.sendFile(m.chat, x.url, 'image.png', wm, m)
+}
+if (args[0] == 'kitsune') {
+await conn.sendFile(m.chat, x.url, 'image.png', wm, m)
+}
+await conn.sendFile(m.chat, x.url, 'out.gif', m, false, { mimetype: 'image/gif', thumbnail: Buffer.alloc(0) })
 await conn.sendButton(m.chat, `*Silahkan pilih di bawah:*
-  ${command}`, wm, res, [
+  ${command}`, wm, null, [
                 ['Next Picture', `${usedPrefix + command} ${args[0]}`]
             ], m, fdoc)
 }
 
 if (command == 'crafatar') {
-if (!text) throw `Contoh:\n${usedPrefix + command} uuid\n*Cth:* 853c80ef3c3749fdaa49938b674adae6`
+if (!text) throw `Contoh:\n${usedPrefix + command} uuid\n*Cth:* ${usedPrefix + command} 853c80ef3c3749fdaa49938b674adae6`
 let res = `https://crafatar.com/avatars/${text}`
 await conn.sendButton(m.chat, `*Silahkan pilih di bawah:*
   ${command}`, wm, res, [
@@ -148,7 +139,7 @@ await conn.sendButton(m.chat, `*Silahkan pilih di bawah:*
 }
 
 if (command == 'crafatar2') {
-if (!text) throw `Contoh:\n${usedPrefix + command} uuid\n*Cth:* 853c80ef3c3749fdaa49938b674adae6`
+if (!text) throw `Contoh:\n${usedPrefix + command} uuid\n*Cth:* ${usedPrefix + command} 853c80ef3c3749fdaa49938b674adae6`
 let res = `https://crafatar.com/renders/head/${text}`
 await conn.sendButton(m.chat, `*Silahkan pilih di bawah:*
   ${command}`, wm, res, [
@@ -157,7 +148,7 @@ await conn.sendButton(m.chat, `*Silahkan pilih di bawah:*
 }
 
 if (command == 'crafatar3') {
-if (!text) throw `Contoh:\n${usedPrefix + command} uuid\n*Cth:* 853c80ef3c3749fdaa49938b674adae6`
+if (!text) throw `Contoh:\n${usedPrefix + command} uuid\n*Cth:* ${usedPrefix + command} 853c80ef3c3749fdaa49938b674adae6`
 let res = `https://crafatar.com/renders/body/${text}`
 await conn.sendButton(m.chat, `*Silahkan pilih di bawah:*
   ${command}`, wm, res, [
@@ -166,7 +157,7 @@ await conn.sendButton(m.chat, `*Silahkan pilih di bawah:*
 }
 
 if (command == 'crafatar4') {
-if (!text) throw `Contoh:\n${usedPrefix + command} uuid\n*Cth:* 853c80ef3c3749fdaa49938b674adae6`
+if (!text) throw `Contoh:\n${usedPrefix + command} uuid\n*Cth:* ${usedPrefix + command} 853c80ef3c3749fdaa49938b674adae6`
 let res = `https://crafatar.com/skins/${text}`
 await conn.sendButton(m.chat, `*Silahkan pilih di bawah:*
   ${command}`, wm, res, [
@@ -175,7 +166,7 @@ await conn.sendButton(m.chat, `*Silahkan pilih di bawah:*
 }
 
 if (command == 'crafatar5') {
-if (!text) throw `Contoh:\n${usedPrefix + command} uuid\n*Cth:* 853c80ef3c3749fdaa49938b674adae6`
+if (!text) throw `Contoh:\n${usedPrefix + command} uuid\n*Cth:* ${usedPrefix + command} 853c80ef3c3749fdaa49938b674adae6`
 let res = `https://crafatar.com/capes/${text}`
 await conn.sendButton(m.chat, `*Silahkan pilih di bawah:*
   ${command}`, wm, res, [
@@ -194,7 +185,7 @@ await conn.sendButton(m.chat, `*Result:*
 }
 
 }
-handler.command = handler.help = ['gqr', 'sspng', 'catboys', 'animals', 'nekos', 'crafatar', 'crafatar2', 'crafatar3', 'crafatar4', 'crafatar5', 'lmsea']
+handler.command = handler.help = ['gqr', 'catboys', 'animals', 'nekos', 'crafatar', 'crafatar2', 'crafatar3', 'crafatar4', 'crafatar5', 'lmsea']
 handler.tags = ['random']
 
 export default handler
