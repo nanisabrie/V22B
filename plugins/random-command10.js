@@ -7,8 +7,8 @@ let fdoc = {quoted:{key : {participant : '0@s.whatsapp.net'},message: {documentM
 let imgr = flaaa.getRandom()
 
 if (command == 'gqr') {
-if (!text) throw `Contoh:\n${usedPrefix + command} https://google.com`
-let res = await fetch(`https://api.qrserver.com/v1/create-qr-code/?size=500x500&data=${text}`)
+if (!text) throw `Contoh:\n${usedPrefix + command} Teks`
+let res = `https://api.qrserver.com/v1/create-qr-code/?size=500x500&data=${text}`
 await conn.sendButton(m.chat, `*Silahkan pilih di bawah:*
   ${command}`, wm, res, [
                 ['Get Picture', `${usedPrefix}get ${res}`]
@@ -26,7 +26,7 @@ if (command == 'catboys') {
 if (args[0] == 'baka') {
 let f = await fetch(`https://api.catboys.com/baka`)
 let x = await f.json()
-await conn.sendFile(m.chat, x.url, 'image.gif', wm, m)
+await conn.sendFile(m.chat, x.url, 'image.png', wm, m)
 }
 if (args[0] == 'img') {
 let f = await fetch(`https://api.catboys.com/img`)
@@ -124,14 +124,17 @@ if (!args[0]) throw `Contoh:\n${usedPrefix + command} baka
 • wave
 • wink
 `
+
 let f = await fetch(`https://nekos.best/api/v2/${args[0]}`)
 let x = await f.json()
-await conn.sendButton(m.chat, `*Result:*
-*Name:* ${x.results.artist_name}
-*Latin:* ${x.results.artist_href}
-*Type:* ${x.results.source_url}
-`, wm, x.results.url, [
-                ['Get Picture', `${usedPrefix}get ${x.results.url}`]
+try {
+await conn.sendFile(m.chat, x.url, 'image.png', wm, m)
+} catch {
+await conn.sendFile(m.chat, x.url, 'image.gif', wm, m)
+}
+await conn.sendButton(m.chat, `*Silahkan pilih di bawah:*
+  ${command}`, wm, res, [
+                ['Next Picture', `${usedPrefix + command} ${args[0]}`]
             ], m, fdoc)
 }
 

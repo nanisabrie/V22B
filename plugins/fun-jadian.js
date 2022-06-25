@@ -33,7 +33,8 @@ let ps = groupMetadata.participants.map(v => v.id)
         mentions: [a, b]
     })
     */
-    let caption = `*Ciee...* ${m.sender.split("@")[0]} ❤️ ${toM(b)}`
+    let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
+    let caption = `*Ciee...* ${who.split("@")[0]} ❤️ ${toM(b)}`
     await conn.sendButton(m.chat, caption, wm, null, [['jodohnya', `${usedPrefix}jodohnya`],['jodohku', `${usedPrefix}jodohku`]], m, { mentions: conn.parseMention(caption) })
     }
     
@@ -44,4 +45,3 @@ handler.command = handler.help = ['jodohnya', 'jodohku']
 handler.group = true
 
 export default handler
-
