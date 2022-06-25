@@ -21,10 +21,11 @@ _©${global.wm}_`
 }
 
 if (command == 'tiktokwm') {
+let linkwm = `https://api.lolhuman.xyz/api/tiktokwm?apikey=9b817532fadff8fc7cb86862&url=${args[0]}`
 let caption2 = `*TIKTOK WITH WM*
 _©${global.wm}_`
 	let buttons2 = [{ buttonText: { displayText: 'To Mp3' }, buttonId: `${usedPrefix}tomp3` }]
-	conn.sendMessage(m.chat, { video: { url: `https://api.lolhuman.xyz/api/tiktokwm?apikey=9b817532fadff8fc7cb86862&url=${args[0]}` }, caption: caption2 , footer: await shortUrl(`${args[0]}`), buttons2 }, { quoted: m })
+	conn.sendMessage(m.chat, { video: { url: linkwm }, caption: caption2 , footer: await shortUrl(`${args[0]}`), buttons2 }, { quoted: m })
 }
 
 if (command == 'tiktoknowm') {
@@ -33,15 +34,8 @@ let has = await link.json()
 let x = has.result
 let caption3 = `*TIKTOK NO WM*
 *Title:* ${x.title}
-*Description:* ${x.description}
 *Keyword:* ${x.keywords}
 *Description:* ${x.description}
-*Username:* ${x.author.username}
-*Nickname:* ${x.author.nickname}
-*Digg:* ${x.statistic.diggCount}
-*Share:* ${x.statistic.shareCount}
-*Comment:* ${x.statistic.commentCount}
-*View:* ${x.statistic.playCount}
 
 _©${global.wm}_`
 	let buttons3 = [{ buttonText: { displayText: 'To Mp3' }, buttonId: `${usedPrefix}tomp3` }]
