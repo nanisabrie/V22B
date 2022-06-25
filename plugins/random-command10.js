@@ -135,8 +135,64 @@ await conn.sendButton(m.chat, `*Result:*
             ], m, fdoc)
 }
 
+if (command == 'crafatar') {
+if (!text) throw `Contoh:\n${usedPrefix + command} uuid\n*Cth:* 853c80ef3c3749fdaa49938b674adae6`
+let res = `https://crafatar.com/avatars/${text}`
+await conn.sendButton(m.chat, `*Silahkan pilih di bawah:*
+  ${command}`, wm, res, [
+                ['Get Picture', `${usedPrefix}get ${res}`]
+            ], m, fdoc)
 }
-handler.command = handler.help = ['sspng', 'catboys', 'animals', 'nekos', 'gqr']
+
+if (command == 'crafatar2') {
+if (!text) throw `Contoh:\n${usedPrefix + command} uuid\n*Cth:* 853c80ef3c3749fdaa49938b674adae6`
+let res = `https://crafatar.com/renders/head/${text}`
+await conn.sendButton(m.chat, `*Silahkan pilih di bawah:*
+  ${command}`, wm, res, [
+                ['Get Picture', `${usedPrefix}get ${res}`]
+            ], m, fdoc)
+}
+
+if (command == 'crafatar3') {
+if (!text) throw `Contoh:\n${usedPrefix + command} uuid\n*Cth:* 853c80ef3c3749fdaa49938b674adae6`
+let res = `https://crafatar.com/renders/body/${text}`
+await conn.sendButton(m.chat, `*Silahkan pilih di bawah:*
+  ${command}`, wm, res, [
+                ['Get Picture', `${usedPrefix}get ${res}`]
+            ], m, fdoc)
+}
+
+if (command == 'crafatar4') {
+if (!text) throw `Contoh:\n${usedPrefix + command} uuid\n*Cth:* 853c80ef3c3749fdaa49938b674adae6`
+let res = `https://crafatar.com/skins/${text}`
+await conn.sendButton(m.chat, `*Silahkan pilih di bawah:*
+  ${command}`, wm, res, [
+                ['Get Picture', `${usedPrefix}get ${res}`]
+            ], m, fdoc)
+}
+
+if (command == 'crafatar5') {
+if (!text) throw `Contoh:\n${usedPrefix + command} uuid\n*Cth:* 853c80ef3c3749fdaa49938b674adae6`
+let res = `https://crafatar.com/capes/${text}`
+await conn.sendButton(m.chat, `*Silahkan pilih di bawah:*
+  ${command}`, wm, res, [
+                ['Get Picture', `${usedPrefix}get ${res}`]
+            ], m, fdoc)
+}
+
+if (command == 'lmsea') {
+if (!text) throw `Contoh:\n${usedPrefix + command} https://google.com`
+let res = await fetch(`https://imsea.herokuapp.com/api/1?q=${text}`)
+let ran = res.results
+let img = ran.getRandom()
+await conn.sendButton(m.chat, `*Result:*
+  ${res.image_name}`, wm, img, [
+                ['Next', `${usedPrefix + command} ${text}`]
+            ], m, fdoc)
+}
+
+}
+handler.command = handler.help = ['gqr', 'sspng', 'catboys', 'animals', 'nekos', 'crafatar', 'crafatar2', 'crafatar3', 'crafatar4', 'crafatar5', 'lmsea']
 handler.tags = ['random']
 
 export default handler
