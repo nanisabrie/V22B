@@ -184,8 +184,100 @@ await conn.sendButton(m.chat, `*Result:*
             ], m, fdoc)
 }
 
+if (command == 'iqrax') {
+		oh = `*Example:* ${usedPrefix + command} 3\n\nIQRA Which Is Available : 1,2,3,4,5,6`
+		if (!text) return m.reply(oh)
+		yy = `https://islamic-api-indonesia.herokuapp.com/api/data/pdf/iqra${text}`
+		conn.sendMessage(m.chat, {document: yy, mimetype: 'application/pdf', fileName: `iqra${text}.pdf`}, {quoted:m}).catch ((err) => m.reply(oh))
+		}
+		
+if (command == 'juzammax') {
+if (args[0] === 'pdf') {
+		m.reply('Wait')
+		conn.sendMessage(m.chat, {document: {url: 'https://fatiharridho.my.id/database/islam/juz-amma-arab-latin-indonesia.pdf'}, mimetype: 'application/pdf', fileName: 'juz-amma-arab-latin-indonesia.pdf'}, {quoted:m})
+		} else if (args[0] === 'docx') {
+		m.reply('Wait')
+		conn.sendMessage(m.chat, {document: {url: 'https://fatiharridho.my.id/database/islam/juz-amma-arab-latin-indonesia.docx'}, mimetype: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', fileName: 'juz-amma-arab-latin-indonesia.docx'}, {quoted:m})
+		} else if (args[0] === 'pptx') {
+		m.reply('Wait')
+		conn.sendMessage(m.chat, {document: {url: 'https://fatiharridho.my.id/database/islam/juz-amma-arab-latin-indonesia.pptx'}, mimetype: 'application/vnd.openxmlformats-officedocument.presentationml.presentation', fileName: 'juz-amma-arab-latin-indonesia.pptx'}, {quoted:m})
+		} else if (args[0] === 'xlsx') {
+		m.reply('Wait')
+		conn.sendMessage(m.chat, {document: {url: 'https://fatiharridho.my.id/database/islam/juz-amma-arab-latin-indonesia.xlsx'}, mimetype: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', fileName: 'juz-amma-arab-latin-indonesia.xlsx'}, {quoted:m})
+		} else {
+		m.reply(`What Format Do You Want? ? *Example:* ${usedPrefix + command} pdf
+
+Available Formats: pdf, docx, pptx, xlsx`)
+		}
+		}
+		
+if (command == 'hadistx') {
+		if (!args[0]) return m.reply(`*Example:*
+${usedPrefix + command} bukhari 1
+${usedPrefix + command} abu-daud 1
+
+Options Available:
+abu-daud
+1 - 4590
+ahmad
+1 - 26363
+bukhari
+1 - 7008
+darimi
+1 - 3367
+ibu-majah
+1 - 4331
+nasai
+1 - 5662
+malik
+1 - 1594
+muslim
+1 - 5362`)
+		if (!args[1]) return m.reply(`Which Hadith??\n\n*Example:*\n${usedPrefix + command} muslim 1`)
+		try {
+		let ft = await fetch(`https://islamic-api-indonesia.herokuapp.com/api/data/json/hadith/${args[0]}`)
+		let res = await ft.json()
+		let { number, arab, id } = res.find(v => v.number == args[1])
+		m.reply(`No. ${number}
+
+${arab}
+
+${id}`)
+		} catch (e) {
+		m.reply(`Hadith Not Found !`)
+		}
+		}
+		
+if (command == 'alquranx') {
+		if (!args[0]) return m.reply(`*Usage Examples:*\n${usedPrefix + command} 1 2\n\nThen The Result Is Surah Al-Fatihah Verse 2 Along With The Audio, And The Verse Is Just 1`)
+		if (!args[1]) return m.reply(`*Usage Examples:*\n${usedPrefix + command} 1 2\n\nThen The Result Is Surah Al-Fatihah Verse 2 Along With The Audio, And The Verse Is Just 1`)
+		let fet = await fetch(`https://islamic-api-indonesia.herokuapp.com/api/data/quran?surah=${args[0]}&ayat=${args[1]}`)
+		let res = await fet.json()
+		let txt = `*Arab* : ${res.result.data.text.arab}
+*English* : ${res.result.data.translation.en}
+*Indonesia* : ${res.result.data.translation.id}
+
+( Q.S ${res.result.data.surah.name.transliteration.id} : ${res.result.data.number.inSurah} )`
+		m.reply(txt)
+		conn.sendMessage(m.chat, {audio: { url: res.result.data.audio.primary }, mimetype: 'audio/mpeg'}, { quoted : m })
+		}
+		
+if (command == 'tafsirsurahx') {
+		if (!args[0]) return m.reply(`*Usage Examples:*\n${usedPrefix + command} 1 2\n\nThen The Result Is The Interpretation Of Surah Al-Fatihah Verse 2`)
+		if (!args[1]) return m.reply(`*Usage Examples:*\n${usedPrefix + command} 1 2\n\nThen The Result Is The Interpretation Of Surah Al-Fatihah Verse 2`)
+		let fetc = await fetch(`https://islamic-api-indonesia.herokuapp.com/api/data/quran?surah=${args[0]}&ayat=${args[1]}`)
+		let res = await fetc.json()
+		let txt = `「 *Tafsir Surah*  」
+
+*Short* : ${res.result.data.tafsir.id.short}
+
+*Long* : ${res.result.data.tafsir.id.long}
+
+( Q.S ${res.result.data.surah.name.transliteration.id} : ${res.result.data.number.inSurah} )`
+		m.reply(txt)
+		}
 }
-handler.command = handler.help = ['gqr', 'catboys', 'animals', 'nekos', 'crafatar', 'crafatar2', 'crafatar3', 'crafatar4', 'crafatar5', 'lmsea']
+handler.command = handler.help = ['gqr', 'catboys', 'animals', 'nekos', 'crafatar', 'crafatar2', 'crafatar3', 'crafatar4', 'crafatar5', 'lmsea', 'iqrax', 'juzammax', 'hadistx', 'alquranx', 'tafsirsurahx']
 handler.tags = ['random']
 
 export default handler
