@@ -39,7 +39,7 @@ let caption = `*YOUR PROFILE*
 *📨 Terdaftar:* ${registered ? 'Ya (' + new Date(regTime).toLocaleString() + ')' : 'Tidak'} ${lastclaim > 0 ? '\n*⏱️Terakhir Klaim:* ' + new Date(lastclaim).toLocaleString() : ''}\n\n Ketik ${usedPrefix}inv untuk melihat Inventory RPG`
 //conn.sendFile(m.chat, pp, 'propil.jpg', caption, m , false, { contextInfo: { mentionedJid: [who, pasangan] } })
 
-conn.sendHydrated(m.chat, caption, wm + '\n\n' + botdate, pp, gcwangsaf, 'Link Group', user.split`@`[0], 'Nomor', [
+conn.sendHydrated(m.chat, caption, wm + '\n\n' + botdate, pp, gcwangsaf, 'Link Group', who.split`@`[0], 'Nomor', [
       ['Menu', '/menu'],
       ['Owner', '/owner'],
       ['Test', '/ping']
