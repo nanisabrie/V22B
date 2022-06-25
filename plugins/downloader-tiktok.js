@@ -8,7 +8,6 @@ let buttons = [
 	{ buttonText: { displayText: 'With Wm' }, buttonId: `${usedPrefix}tiktokwm ${args[0]}` },
 	{ buttonText: { displayText: 'No Wm' }, buttonId: `${usedPrefix}tiktoknowm ${args[0]}` }
 	]
-let error = `Link mesti kek gini bang https://vt.tiktok.com/ZSwWCk5o/`
 if (command == 'tiktok') {
     const { author: { nickname }, video, description } = await tiktokdl(args[0])
     const url = video.no_watermark || video.no_watermark2 || video.no_watermark_raw
@@ -19,23 +18,21 @@ let caption = `*TIKTOK DOWNLOADER*
 
 _©${global.wm}_`
 	conn.sendMessage(m.chat, { video: { url: url }, caption: caption , footer: await shortUrl(url), buttons }, { quoted: m })
-} else if (err) {
-throw error
 }
 
 if (command == 'tiktokwm') {
 let linkwm = `https://api.lolhuman.xyz/api/tiktokwm?apikey=9b817532fadff8fc7cb86862&url=${args[0]}`
+if (!linkwm) throw 'Can\'t download video!'
 let caption2 = `*TIKTOK WITH WM*
 _©${global.wm}_`
 	conn.sendMessage(m.chat, { video: { url: linkwm }, caption: caption2 , footer: await shortUrl(`${args[0]}`), buttons }, { quoted: m })
-} else if (err) {
-throw error
 }
 
 if (command == 'tiktoknowm') {
 let link = await fetch(`https://api.lolhuman.xyz/api/tiktok?apikey=9b817532fadff8fc7cb86862&url=${args[0]}`)
 let has = await link.json()
 let x = has.result
+if (!x.link) throw 'Can\'t download video!'
 let caption3 = `*TIKTOK NO WM*
 *Title:* ${x.title}
 *Keyword:* ${x.keywords}
@@ -43,8 +40,6 @@ let caption3 = `*TIKTOK NO WM*
 
 _©${global.wm}_`
 	conn.sendMessage(m.chat, { video: { url: x.link }, caption: caption3 , footer: await shortUrl(x.link), buttons }, { quoted: m })
-} else if (err) {
-throw error
 }
 
 }
