@@ -1,5 +1,7 @@
 import axios from "axios"
 let handler = async (m, {command, conn}) => {
+
+// Random
 if (command == 'cosplay') {
 let haha = await conn.getFile(`https://yourclown.eu.org/api/random/cosplay?apikey=apirey`)
 conn.sendButton(m.chat, `Anime *${command}*`.trim(), author, haha.data, [['🔄 Next 🔄', `/${command}`]], m)}
@@ -174,8 +176,124 @@ conn.sendButton(m.chat, `Anime *${command}*`.trim(), author, haha.data, [['🔄 
 if (command == 'yuri') {
 let haha = await conn.getFile(`https://yourclown.eu.org/api/wallpaper/yuri?apikey=apirey`)
 conn.sendButton(m.chat, `Anime *${command}*`.trim(), author, haha.data, [['🔄 Next 🔄', `/${command}`]], m)}
+
+// Nsfw
+if (command == 'ahegao') {
+let haha = await conn.getFile(`https://yourclown.eu.org/api/nsfw/ahegao?apikey=apirey`)
+conn.sendButton(m.chat, `Anime *${command}*`.trim(), author, haha.data, [['🔄 Next 🔄', `/${command}`]], m)}
+if (command == 'ass') {
+let haha = await conn.getFile(`https://yourclown.eu.org/api/nsfw/ass?apikey=apirey`)
+conn.sendButton(m.chat, `Anime *${command}*`.trim(), author, haha.data, [['🔄 Next 🔄', `/${command}`]], m)}
+if (command == 'bdsm') {
+let haha = await conn.getFile(`https://yourclown.eu.org/api/nsfw/bdsm?apikey=apirey`)
+conn.sendButton(m.chat, `Anime *${command}*`.trim(), author, haha.data, [['🔄 Next 🔄', `/${command}`]], m)}
+if (command == 'blowjob') {
+let haha = await conn.getFile(`https://yourclown.eu.org/api/nsfw/blowjob?apikey=apirey`)
+conn.sendButton(m.chat, `Anime *${command}*`.trim(), author, haha.data, [['🔄 Next 🔄', `/${command}`]], m)}
+if (command == 'cuckold') {
+let haha = await conn.getFile(`https://yourclown.eu.org/api/nsfw/cuckold?apikey=apirey`)
+conn.sendButton(m.chat, `Anime *${command}*`.trim(), author, haha.data, [['🔄 Next 🔄', `/${command}`]], m)}
+if (command == 'cum') {
+let haha = await conn.getFile(`https://yourclown.eu.org/api/nsfw/cum?apikey=apirey`)
+conn.sendButton(m.chat, `Anime *${command}*`.trim(), author, haha.data, [['🔄 Next 🔄', `/${command}`]], m)}
+if (command == 'ero') {
+let haha = await conn.getFile(`https://yourclown.eu.org/api/nsfw/ero?apikey=apirey`)
+conn.sendButton(m.chat, `Anime *${command}*`.trim(), author, haha.data, [['🔄 Next 🔄', `/${command}`]], m)}
+if (command == 'femdom') {
+let haha = await conn.getFile(`https://yourclown.eu.org/api/nsfw/femdom?apikey=apirey`)
+conn.sendButton(m.chat, `Anime *${command}*`.trim(), author, haha.data, [['🔄 Next 🔄', `/${command}`]], m)}
+if (command == 'foot') {
+let haha = await conn.getFile(`https://yourclown.eu.org/api/nsfw/foot?apikey=apirey`)
+conn.sendButton(m.chat, `Anime *${command}*`.trim(), author, haha.data, [['🔄 Next 🔄', `/${command}`]], m)}
+if (command == 'gangbang') {
+let haha = await conn.getFile(`https://yourclown.eu.org/api/nsfw/gangbang?apikey=apirey`)
+conn.sendButton(m.chat, `Anime *${command}*`.trim(), author, haha.data, [['🔄 Next 🔄', `/${command}`]], m)}
+if (command == 'gifs') {
+let haha = await conn.getFile(`https://yourclown.eu.org/api/nsfw/gifs?apikey=apirey`)
+conn.sendButton(m.chat, `Anime *${command}*`.trim(), author, haha.data, [['🔄 Next 🔄', `/${command}`]], m)}
+if (command == 'glasses') {
+let haha = await conn.getFile(`https://yourclown.eu.org/api/nsfw/glasses?apikey=apirey`)
+conn.sendButton(m.chat, `Anime *${command}*`.trim(), author, haha.data, [['🔄 Next 🔄', `/${command}`]], m)}
+if (command == 'hentai') {
+let haha = await conn.getFile(`https://yourclown.eu.org/api/nsfw/hentai?apikey=apirey`)
+conn.sendButton(m.chat, `Anime *${command}*`.trim(), author, haha.data, [['🔄 Next 🔄', `/${command}`]], m)}
+if (command == 'jahy') {
+let haha = await conn.getFile(`https://yourclown.eu.org/api/nsfw/jahy?apikey=apirey`)
+conn.sendButton(m.chat, `Anime *${command}*`.trim(), author, haha.data, [['🔄 Next 🔄', `/${command}`]], m)}
+if (command == 'manga') {
+let haha = await conn.getFile(`https://yourclown.eu.org/api/nsfw/manga?apikey=apirey`)
+conn.sendButton(m.chat, `Anime *${command}*`.trim(), author, haha.data, [['🔄 Next 🔄', `/${command}`]], m)}
+if (command == 'masturbation') {
+let haha = await conn.getFile(`https://yourclown.eu.org/api/nsfw/masturbation?apikey=apirey`)
+conn.sendButton(m.chat, `Anime *${command}*`.trim(), author, haha.data, [['🔄 Next 🔄', `/${command}`]], m)}
+if (command == 'neko') {
+let haha = await conn.getFile(`https://yourclown.eu.org/api/nsfw/neko?apikey=apirey`)
+conn.sendButton(m.chat, `Anime *${command}*`.trim(), author, haha.data, [['🔄 Next 🔄', `/${command}`]], m)}
+if (command == 'neko2') {
+let haha = await conn.getFile(`https://yourclown.eu.org/api/nsfw/neko2?apikey=apirey`)
+conn.sendButton(m.chat, `Anime *${command}*`.trim(), author, haha.data, [['🔄 Next 🔄', `/${command}`]], m)}
+if (command == 'orgy') {
+let haha = await conn.getFile(`https://yourclown.eu.org/api/nsfw/orgy?apikey=apirey`)
+conn.sendButton(m.chat, `Anime *${command}*`.trim(), author, haha.data, [['🔄 Next 🔄', `/${command}`]], m)}
+if (command == 'panties') {
+let haha = await conn.getFile(`https://yourclown.eu.org/api/nsfw/panties?apikey=apirey`)
+conn.sendButton(m.chat, `Anime *${command}*`.trim(), author, haha.data, [['🔄 Next 🔄', `/${command}`]], m)}
+if (command == 'pussy') {
+let haha = await conn.getFile(`https://yourclown.eu.org/api/nsfw/pussy?apikey=apirey`)
+conn.sendButton(m.chat, `Anime *${command}*`.trim(), author, haha.data, [['🔄 Next 🔄', `/${command}`]], m)}
+if (command == 'tentacles') {
+let haha = await conn.getFile(`https://yourclown.eu.org/api/nsfw/tentacles?apikey=apirey`)
+conn.sendButton(m.chat, `Anime *${command}*`.trim(), author, haha.data, [['🔄 Next 🔄', `/${command}`]], m)}
+if (command == 'thighs') {
+let haha = await conn.getFile(`https://yourclown.eu.org/api/nsfw/thighs?apikey=apirey`)
+conn.sendButton(m.chat, `Anime *${command}*`.trim(), author, haha.data, [['🔄 Next 🔄', `/${command}`]], m)}
+if (command == 'yuri3') {
+let haha = await conn.getFile(`https://yourclown.eu.org/api/nsfw/yuri?apikey=apirey`)
+conn.sendButton(m.chat, `Anime *${command}*`.trim(), author, haha.data, [['🔄 Next 🔄', `/${command}`]], m)}
+if (command == 'zettai') {
+let haha = await conn.getFile(`https://yourclown.eu.org/api/nsfw/zettai?apikey=apirey`)
+conn.sendButton(m.chat, `Anime *${command}*`.trim(), author, haha.data, [['🔄 Next 🔄', `/${command}`]], m)}
+
+// Wallpaper
+if (command == 'cecan') {
+let haha = await conn.getFile(`https://yourclown.eu.org/api/wallpaper/cecan?apikey=apirey`)
+conn.sendButton(m.chat, `Wallpaper *${command}*`.trim(), author, haha.data, [['🔄 Next 🔄', `/${command}`]], m)}
+if (command == 'cecan2') {
+let haha = await conn.getFile(`https://yourclown.eu.org/api/wallpaper/cecan2?apikey=apirey`)
+conn.sendButton(m.chat, `Wallpaper *${command}*`.trim(), author, haha.data, [['🔄 Next 🔄', `/${command}`]], m)}
+if (command == 'cecan3') {
+let haha = await conn.getFile(`https://yourclown.eu.org/api/wallpaper/cecan3?apikey=apirey`)
+conn.sendButton(m.chat, `Wallpaper *${command}*`.trim(), author, haha.data, [['🔄 Next 🔄', `/${command}`]], m)}
+if (command == 'cecan4') {
+let haha = await conn.getFile(`https://yourclown.eu.org/api/wallpaper/cecan4?apikey=apirey`)
+conn.sendButton(m.chat, `Wallpaper *${command}*`.trim(), author, haha.data, [['🔄 Next 🔄', `/${command}`]], m)}
+if (command == 'cecan5') {
+let haha = await conn.getFile(`https://yourclown.eu.org/api/wallpaper/cecan5?apikey=apirey`)
+conn.sendButton(m.chat, `Wallpaper *${command}*`.trim(), author, haha.data, [['🔄 Next 🔄', `/${command}`]], m)}
+if (command == 'cogan') {
+let haha = await conn.getFile(`https://yourclown.eu.org/api/wallpaper/cogan?apikey=apirey`)
+conn.sendButton(m.chat, `Wallpaper *${command}*`.trim(), author, haha.data, [['🔄 Next 🔄', `/${command}`]], m)}
+if (command == 'jeni') {
+let haha = await conn.getFile(`https://yourclown.eu.org/api/wallpaper/jeni?apikey=apirey`)
+conn.sendButton(m.chat, `Wallpaper *${command}*`.trim(), author, haha.data, [['🔄 Next 🔄', `/${command}`]], m)}
+if (command == 'jiso') {
+let haha = await conn.getFile(`https://yourclown.eu.org/api/wallpaper/jiso?apikey=apirey`)
+conn.sendButton(m.chat, `Wallpaper *${command}*`.trim(), author, haha.data, [['🔄 Next 🔄', `/${command}`]], m)}
+if (command == 'justina') {
+let haha = await conn.getFile(`https://yourclown.eu.org/api/wallpaper/justina?apikey=apirey`)
+conn.sendButton(m.chat, `Wallpaper *${command}*`.trim(), author, haha.data, [['🔄 Next 🔄', `/${command}`]], m)}
+if (command == 'nsfwloli') {
+let haha = await conn.getFile(`https://yourclown.eu.org/api/wallpaper/nsfwloli?apikey=apirey`)
+conn.sendButton(m.chat, `Wallpaper *${command}*`.trim(), author, haha.data, [['🔄 Next 🔄', `/${command}`]], m)}
+if (command == 'rose') {
+let haha = await conn.getFile(`https://yourclown.eu.org/api/wallpaper/rose?apikey=apirey`)
+conn.sendButton(m.chat, `Wallpaper *${command}*`.trim(), author, haha.data, [['🔄 Next 🔄', `/${command}`]], m)}
+if (command == 'ryujin') {
+let haha = await conn.getFile(`https://yourclown.eu.org/api/wallpaper/ryujin?apikey=apirey`)
+conn.sendButton(m.chat, `Wallpaper *${command}*`.trim(), author, haha.data, [['🔄 Next 🔄', `/${command}`]], m)}
+
 }
 
-handler.command = handler.help = ['akira', 'akiyama', 'ana', 'asuna', 'ayuzawa', 'boneka-chucky', 'boruto', 'chiho', 'chitoge', 'cosplay', 'deidara', 'eba', 'elaina', 'emilia', 'erza', 'gremory', 'hestia', 'hinata', 'inori', 'isuzu', 'itachi', 'itori', 'kaga', 'kagura', 'kaori', 'keneki', 'kotori', 'kurumi', 'loli', 'madara', 'megumin', 'mikasa', 'miku', 'minato', 'mobil', 'montor', 'naruto', 'nezuko', 'onepiece', 'pokemon', 'rize', 'sagiri', 'sakura', 'sasuke', 'shina', 'shinka', 'shinomiya', 'shizuka', 'shota', 'tejina', 'toukachan', 'tsunade', 'waifu2', 'waifu', 'yotsuba', 'yuki', 'yumeko', 'yuri']
+handler.command = handler.help = ['akira', 'akiyama', 'ana', 'asuna', 'ayuzawa', 'boneka-chucky', 'boruto', 'chiho', 'chitoge', 'cosplay', 'deidara', 'eba', 'elaina', 'emilia', 'erza', 'gremory', 'hestia', 'hinata', 'inori', 'isuzu', 'itachi', 'itori', 'kaga', 'kagura', 'kaori', 'keneki', 'kotori', 'kurumi', 'loli', 'madara', 'megumin', 'mikasa', 'miku', 'minato', 'mobil', 'montor', 'naruto', 'nezuko', 'onepiece', 'pokemon', 'rize', 'sagiri', 'sakura', 'sasuke', 'shina', 'shinka', 'shinomiya', 'shizuka', 'shota', 'tejina', 'toukachan', 'tsunade', 'waifu2', 'waifu', 'yotsuba', 'yuki', 'yumeko', 'yuri', 'ahegao', 'ass', 'bdsm', 'blowjob', 'cuckold', 'cum', 'ero', 'femdom', 'foot', 'gangbang', 'gifs', 'glasses', 'hentai', 'jahy', 'manga', 'masturbation', 'neko', 'neko2', 'orgy', 'panties', 'pussy', 'tentacles', 'thighs', 'yuri3', 'zettai', 'cecan2', 'cecan3', 'cecan4', 'cecan5', 'cecan', 'cogan', 'jeni', 'jiso', 'justina', 'nsfwloli', 'rose', 'ryujin']
 handler.tags = ['anime']
 export default handler
