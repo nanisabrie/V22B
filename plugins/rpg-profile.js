@@ -43,7 +43,7 @@ conn.sendHydrated(m.chat, caption, wm + '\n\n' + botdate, pp, gcwangsaf, 'Link G
       ['Menu', '/menu'],
       ['Owner', '/owner'],
       ['Test', '/ping']
-    ], null, false, { mentions: [who, pasangan] })
+    ], m, { mentions: conn.parseMention(caption) })
 }
 
 handler.help = ['profile'].map(v => v + ' <url>')
