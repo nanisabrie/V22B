@@ -9,7 +9,9 @@ let handler = async (m, { conn, usedPrefix }) => {
         throw false
     }
     let res = await fetch('https://sekha.me/api/game/tebakchara?apikey=apirey')
-    let jsons = await res.json()
+    let txt = await res.text()
+    let jsons = await txt.json()
+    
     let json = jsons.result
     let caption = `Siapakah nama dari gambar ini
 
