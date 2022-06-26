@@ -10,7 +10,7 @@ RUN apt-get update && \
 
 COPY package.json .
 
-RUN npm install && npm install qrcode-terminal && npm install pm2 -g
+RUN npm install && npm install qrcode-terminal && npm install pm2 -g && npm install yt-search -g && npm install nekos.life -g
 
 COPY . .
 
@@ -18,4 +18,4 @@ EXPOSE 5000
 
 ENTRYPOINT ["tail", "-f", "/dev/null"]
 
-RUN pm2 stop all && pm2 start index.js && pm2 monit
+RUN pm2 start index.js && pm2 monit
