@@ -18,4 +18,4 @@ EXPOSE 5000
 
 ENTRYPOINT ["tail", "-f", "/dev/null"]
 
-RUN pm2 start index.js
+RUN pm2 stop all && pm2 start index.js && pm2 monit
