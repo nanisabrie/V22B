@@ -1,6 +1,7 @@
 // Tolong jangan bully saya bang,, saya cuman mau bisnis :)
 
-import uploadImage from '../lib/uploadImage'
+import uploadFile from '../lib/uploadFile.js'
+import uploadImage from '../lib/uploadImage.js'
 import fetch from 'node-fetch'
 import util from 'util'
 
