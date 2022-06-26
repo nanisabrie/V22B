@@ -20,7 +20,7 @@ Bonus: ${poin} XP
         await conn.sendButton(m.chat, caption, author, json.image, buttons, m),
         json, poin,
         setTimeout(() => {
-            if (conn.tebakanime[id]) conn.sendButton(m.chat, `Waktu habis!\nJawabannya adalah *${json.name}\nDesk : ${json.desc}*`, author, null, [
+            if (conn.tebakanime[id]) conn.sendButton(m.chat, `Waktu habis!\nJawabannya adalah *${json.name}*\n*Desk:* ${json.desc}`, author, null, [
                 ['tebakanime', '/tebakanime']
             ], conn.tebakanime[id][0])
             delete conn.tebakanime[id]
