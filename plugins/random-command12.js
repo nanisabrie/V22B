@@ -8,12 +8,13 @@ let imgr = flaaa.getRandom()
 
 if (command == 'chara') {
 let f = await fetch(`https://betabotz-api.herokuapp.com/api/game/tebakchara?apikey=BetaBotz`)
-let x = await f.json()
+let res = await f.json()
+let x = res.result
 await conn.sendButton(m.chat, `*Result:*
-*Title:* ${x.result.name}
-*Name:* ${x.result.desc}
-*Caption:* ${x.result.url}
-`, wm, x.result.image, [
+*Title:* ${x.name}
+*Name:* ${x.desc}
+*Caption:* ${x.url}
+`, wm, `${x.image}`, [
                 ['Next', `${usedPrefix + command}`]
             ], m, fdoc)
 }

@@ -8,7 +8,7 @@ let handler = async (m, { conn, usedPrefix }) => {
         conn.sendButton(m.chat, 'Masih ada soal belum terjawab di chat ini', author, null, buttons, conn.tebakchara[id][0])
         throw false
     }
-    let res = await fetch('https://betabotz-api.herokuapp.com/api/game/tebakchara?apikey=BetaBotz')
+    let res = await fetch('https://sekha.me/api/game/tebakchara?apikey=apirey')
     let jsons = await res.json()
     let json = jsons.result
     let caption = `Siapakah nama dari gambar ini
@@ -18,7 +18,7 @@ Ketik ${usedPrefix}hcha untuk hint
 Bonus: ${poin} XP
     `.trim()
     conn.tebakchara[id] = [
-        await conn.sendButton(m.chat, caption, author, json.image, buttons, m),
+        await conn.sendButton(m.chat, caption, author, `${json.image}`, buttons, m),
         json, poin,
         setTimeout(() => {
             if (conn.tebakchara[id]) conn.sendButton(m.chat, `Waktu habis!\nJawabannya adalah *${json.name}\nDesk : ${json.desc}*`, author, null, [
