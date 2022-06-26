@@ -186,6 +186,13 @@ let handler = async (m, { conn, groupMetadata, usedPrefix: _p, __dirname }) => {
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
     //
+    
+    conn.sendHydrated2(m.chat, text.trim(), wm, hwaifu.getRandom(), webs, 'Website', gcwangsaf, 'Group WhatsApp', [
+      ['Donate', '/donasi'],
+      ['Owner', '/owner'],
+      ['Test', '/ping']
+    ], m, { mentions: this.parseMention(text) })
+    /*
     try {
  let wel = await new Canvas.Welcome()
   .setUsername(`${name}`)
@@ -229,6 +236,7 @@ let handler = async (m, { conn, groupMetadata, usedPrefix: _p, __dirname }) => {
       ['Test', '/ping']
     ], m)
     }
+    */
                 //
   } catch (e) {
     conn.reply(m.chat, 'Maaf, menu sedang error', m)
