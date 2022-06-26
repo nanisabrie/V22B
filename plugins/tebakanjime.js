@@ -11,8 +11,9 @@ let handler = async (m, { conn, usedPrefix }) => {
     let res = await fetch('http://zekais-api.herokuapp.com/tebakanime')
     let json = await res.json()
     let caption = `
+    Siapakah dia
 Timeout *${(timeout / 1000).toFixed(2)} detik*
-Ketik ${usedPrefix}hani untuk hani
+Ketik ${usedPrefix}hani untuk hint
 Bonus: ${poin} XP
     `.trim()
     conn.tebakanime[id] = [

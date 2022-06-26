@@ -12,8 +12,6 @@ let handler = async (m, { conn, usedPrefix }) => {
     let json = await res.json()
     let caption = `
     Siapakah karakter ini
-    ${json.result.name}
-    
 Timeout *${(timeout / 1000).toFixed(2)} detik*
 Ketik ${usedPrefix}hcha untuk hint
 Bonus: ${poin} XP
