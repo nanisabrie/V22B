@@ -1,5 +1,5 @@
 import fetch from 'node-fetch'
-import { sticker } from '../lib/sticker'
+import { sticker } from '../lib/sticker.js'
 
 let handler = async (m, { conn, text, usedPrefix, command }) => {
     if (!text) throw `Penggunaan:\n${usedPrefix + command} <teks>\n\nContoh:\n${usedPrefix + command} spongebob`
