@@ -22,6 +22,7 @@ let fdoc = {quoted:{key : {participant : '0@s.whatsapp.net'},message: {documentM
 	{title: "⏏️ | AutoLevelup", rowId: `${usedPrefix + command} autolevelup`},
 	{title: "🎙️️ | AutoVn", rowId: `${usedPrefix + command} autovn`},
 	{title: "📷 | AutoSticker", rowId: `${usedPrefix + command} autosticker`},
+	{title: "👤 | AutoJoin", rowId: `${usedPrefix + command} autojoin`},
 	{title: "🔎 | Detect", rowId: `${usedPrefix + command} detect`},
 	{title: "📑 | Document", rowId: `${usedPrefix + command} document`},
 	{title: "👤 | WhiteListMyContact", rowId: `${usedPrefix + command} whitelistmycontact`},
@@ -204,6 +205,13 @@ const listMessage = {
           throw false
         }
       chat.autoSticker = isEnable
+      break
+      case 'autojoin':
+        if (!isROwner) {
+          global.dfail('rowner', m, conn)
+          throw false
+        }
+      chat.autoJoin = isEnable
       break
      case 'toxic':
        if (m.isGroup) {
