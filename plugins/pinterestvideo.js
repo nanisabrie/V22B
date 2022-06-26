@@ -1,4 +1,4 @@
-import { pin } from '../lib/scrape'
+import { pin } from '../lib/scrape.js'
 
 let handler = async (m, { conn, args, usedPrefix, command }) => {
 
