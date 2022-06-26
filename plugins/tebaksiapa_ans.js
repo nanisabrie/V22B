@@ -7,7 +7,7 @@ export async function before(m) {
     this.tebaksiapa = this.tebaksiapa ? this.tebaksiapa : {}
     if (!(id in this.tebaksiapa))
         return conn.sendButton(m.chat, 'Soal itu telah berakhir', author, null, buttontebaksiapa, m)
-    if (m.text.id == this.tebaksiapa[id][0].id) {
+    if (m.quoted.id == this.tebaksiapa[id][0].id) {
         let isSurrender = /^((me)?nyerah|surr?ender)$/i.test(m.text)
         if (isSurrender) {
             clearTimeout(this.tebaksiapa[id][3])
