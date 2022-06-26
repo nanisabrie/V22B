@@ -8,10 +8,10 @@ let handler = async (m, { conn, usedPrefix }) => {
         conn.sendButton(m.chat, 'Masih ada soal belum terjawab di chat ini', author, null, buttons, conn.tebakanime[id][0])
         throw false
     }
-    let res = await fetch('http://zekais-api.herokuapp.com/tebakanime')
+    let res = await fetch(`http://zekais-api.herokuapp.com/tebakanime`)
     let json = await res.json()
-    let caption = `
-    Siapakah dia
+    let caption = `Siapakah nama dari gambar ini
+
 Timeout *${(timeout / 1000).toFixed(2)} detik*
 Ketik ${usedPrefix}hani untuk hint
 Bonus: ${poin} XP

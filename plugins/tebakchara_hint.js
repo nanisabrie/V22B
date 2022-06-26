@@ -3,7 +3,7 @@ let handler = async (m, { conn }) => {
     let id = m.chat
     if (!(id in conn.tebakchara)) throw false
     let json = conn.tebakchara[id][1]
-    conn.sendButton(m.chat, '```' + json.result.name.replace(/[AIUEOaiueo]/ig, '_') + '```', author, null, [
+    conn.sendButton(m.chat, '```' + json.name.replace(/[AIUEOaiueo]/ig, '_') + '```', author, null, [
         ['Nyerah', 'menyerah']
     ], m)
 }
