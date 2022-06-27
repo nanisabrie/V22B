@@ -10,10 +10,10 @@ export async function before(m, { conn, args, usedPrefix, command, isAdmin, isBo
     const isAutoJoin = isJoin.exec(m.text)
 
     if (chat.autoJoin && isAutoJoin) {
-        await conn.sendButton(m.chat, `*Link Join Terdeteksi!*${isBotAdmin ? '' : '\n\n_Bot bukan atmin_'}`, author, ['off autojoin', '/disable autojoin'], m)
+        await conn.sendButton(m.chat, `*Link Join Terdeteksi!*`, author, ['off autojoin', '/disable autojoin'], m)
         let frep = { contextInfo: { externalAdReply: {title: global.wm, body: global.author, sourceUrl: snh, thumbnail: fs.readFileSync('./thumbnail.jpg')}}}
         let imgr = flaaa.getRandom()
-    let [_, code, expired] = text.match(isAutoJoin) || []
+    let [_, code, expired] = text.match(isJoin) || []
     if (!code) throw 'Link invalid'
     let res = await conn.groupAcceptInvite(code)
     if (!res) throw res.toString()

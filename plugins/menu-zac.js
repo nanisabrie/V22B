@@ -21,6 +21,45 @@ ${usedPrefix + command} cecan
 
 *Contoh Penggunaan Multi*
 ${usedPrefix + command} pinterest |wibu
+
+*List:*
+• alphacoders
+• cecan
+• cerpen
+• china
+• cosplay
+• dare
+• darkjokes
+• faktaunik
+• fml
+• google
+• hijaber
+• hmod
+• husbu
+• indonesia
+• japan
+• katagalau
+• konachan
+• korea
+• loli
+• loli
+• malaysia
+• meme
+• milf
+• pinterest
+• ppcouple
+• quotes
+• quotesanime
+• random
+• santuy
+• sstick
+• thailand
+• truth
+• ukhty
+• vietnam
+• waifu
+• wallpapercave
+• wiki
 `
 conn.sendButton(m.chat, caption, wm, null, [
                 ['Menu', `${usedPrefix}menu`]
@@ -81,7 +120,7 @@ case 'vietnam':
             ], m, fdoc)
             break
             case 'pinterest':
-            if (!one) throw `Contoh penggunaan ${usedPrefix}${command} |query`
+            if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
         let pn = await fetch(`https://api.zacros.my.id/search/pinterest?query=${one}`)
         let pnn = await pn.json()
         let pnnn = pnn.result
@@ -91,7 +130,7 @@ case 'vietnam':
             ], m, fdoc)
             break
             case 'sstick':
-            if (!one) throw `Contoh penggunaan ${usedPrefix}${command} |query`
+            if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
         let sp = await fetch(`https://api.zacros.my.id/search/sticker?query=${one}`)
         let spp = await sp.json()
         let sppp = `*Result:* ${spp.result[0].title}
@@ -102,7 +141,7 @@ case 'vietnam':
             ], m, fdoc)
             break
             case 'google':
-            if (!one) throw `Contoh penggunaan ${usedPrefix}${command} |query`
+            if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
         let go = await fetch(`https://api.zacros.my.id/search/google?query=${one}`)
         let goo = await go.json()
         let gooo = `*Result:* ${goo.result[0].title}
@@ -113,7 +152,7 @@ case 'vietnam':
             ], m, fdoc)
             break
             case 'hmod':
-            if (!one) throw `Contoh penggunaan ${usedPrefix}${command} |query`
+            if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
         let hm = await fetch(`https://api.zacros.my.id/search/google?query=${one}`)
         let hmm = await hm.json()
         let hmmm = `*Result:* ${hmm.result[0].title}
@@ -124,7 +163,7 @@ case 'vietnam':
             ], m, fdoc)
             break
             case 'wiki':
-            if (!one) throw `Contoh penggunaan ${usedPrefix}${command} |query`
+            if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
         let wk = await fetch(`https://api.zacros.my.id/search/google?query=${one}`)
         let wkk = await wk.json()
         let wkkk = `*Result:* ${wkk.result[0].wiki}
@@ -141,7 +180,7 @@ case 'vietnam':
             case 'cosplay':
             case 'darkjokes':
             case 'meme':
-            if (!args[0]) throw `Contoh penggunaan ${usedPrefix}${command} |query`
+            if (!args[0]) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} `
         let rimg = `https://api.zacros.my.id/randomimg/${args[0]}`
         let riimg = `*Result:* ${args[0]}
 `
@@ -150,7 +189,7 @@ case 'vietnam':
             ], m, fdoc)
             break
             case 'ppcouple':
-            if (!args[0]) throw `Contoh penggunaan ${usedPrefix}${command} |query`
+            if (!args[0]) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} `
         let pp = await fetch(`https://api.zacros.my.id/randomimg/${args[0]}`)
         let ppc = await pp.json()
         let cwo = `*Cwok:* ${args[0]}`
@@ -189,7 +228,7 @@ case 'vietnam':
             case 'katagalau':
             case 'truth':
             case 'dare':
-            if (!args[0]) throw `Contoh penggunaan ${usedPrefix}${command} |query`
+            if (!args[0]) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} `
         let fa = await fetch(`https://api.zacros.my.id/randomtext/${args[0]}`)
         let faa = await fa.json()
         let faaa = `*Result:* ${faa.result}`
