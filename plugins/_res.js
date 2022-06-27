@@ -1,21 +1,34 @@
 import fetch from "node-fetch"
+import { readFileSync } from "fs"
 
-export async function all(m, { conn, text }) {
+
+
+export async function all(m) {
 
   //Kalo mau menggokil pake ini
-  if (m.isBaileys) return
+  let pp = await this.profilePictureUrl(m.sender, 'image').catch(_ => 'https://telegra.ph/file/24fa902ead26340f3df2c.png')
+
+  let stc = readFileSync('./ress.webp')
+
+if (m.isBaileys) return
     if (m.chat.endsWith('broadcast')) return
 
     // ketika ditag 
     try {
         if (m.mentionedJid.includes(this.user.jid) && m.isGroup) {
-    let user = global.db.data.users[m.sender]
-    let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
-    let pp = await conn.profilePictureUrl(who).catch(_ => './src/avatar_contact.png')
-    let name = await conn.getName(who)
-    let caption = `👋 Hai *${name} @${who.split("@")[0]}*, ${user.banned ? 'kamu dibanned' : `Ada yang bisa *${this.user.name}* bantu?\nKetik *.menu* untuk melihat list fitur bot\nKetik *.join* untuk memasukkan bot ke grup kamu`}
-    `.trim()
-    this.sendButton(m.chat, caption, global.wm, pp, [[user.banned ? 'Pemilik Bot' : 'Menu', user.banned ? '.owner' : '/menu']], m, { mentions: this.parseMention(caption) })
+            await this.sendMessage(m.chat, { sticker : stc, thumbnail: await( await fetch(pp)).buffer() , contextInfo:{  externalAdReply: { showAdAttribution: true,
+mediaType:  1,
+mediaUrl: 'https://wa.me/6282195322106',
+title: '「 ❔ 」',
+body: wm,
+sourceUrl: 'http://github.com/AyGemuy', thumbnail: await( await fetch(pp)).buffer()
+ //Kalo mau ada pp dari sender/pengirimnya
+ //Kalo mau ringan pake global.thumb                                                                                                              
+                                                                                                               
+          //thumbnail: await( await fetch(pp)).buffer()
+  }
+ }}, { quoted: m })
+          
         }
     } catch (e) {
         return
