@@ -3,6 +3,8 @@ FROM node:lts-buster
 RUN apt-get update && \
   apt-get install -y \
   ffmpeg \
+  git \
+  nodejs \
   imagemagick \
   webp && \
   apt-get upgrade -y && \
@@ -18,6 +20,4 @@ EXPOSE 5000
 
 ENTRYPOINT ["tail", "-f", "/dev/null"]
 
-RUN make; exit 0
-
-RUN pm2 start index.js
+RUN pm2 start index.js && pm2 startup && pm2 save && pm2 monit
