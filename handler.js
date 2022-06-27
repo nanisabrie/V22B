@@ -49,6 +49,8 @@ export async function handler(chatUpdate) {
                     user.limit = 10
                 if (!isNumber(user.lastclaim))
                     user.lastclaim = 0
+                if (!isNumber(user.lastberbru))
+                    user.lastberbru = 0
                 if (!('registered' in user))
                     user.registered = false
                 if (!user.registered) {
@@ -178,7 +180,6 @@ export async function handler(chatUpdate) {
                 if (!isNumber(user.bawal)) user.bawal = 0
                 if (!isNumber(user.lele)) user.lele = 0
                 if (!isNumber(user.orca)) user.orca = 0
-  
                 if (!isNumber(user.banteng)) user.banteng = 0
                 if (!isNumber(user.harimau)) user.harimau = 0
                 if (!isNumber(user.gajah)) user.gajah = 0
@@ -193,8 +194,6 @@ export async function handler(chatUpdate) {
                 if (!isNumber(user.ayam)) user.ayam = 0
                 // Batas
                 
-                if (!isNumber(user.lastclaim))
-                    user.lastclaim = 0
                 if (!isNumber(user.lastadventure))
                     user.lastadventure = 0
                 if (!isNumber(user.lastfishing))
@@ -223,6 +222,7 @@ export async function handler(chatUpdate) {
                     user.job = ''
                 if (!('pasangan' in user))
                     user.pasangan = ''
+                    
                 //NEW RPG
                 if (!('skill' in user))
                     user.skill = ''
@@ -256,7 +256,6 @@ export async function handler(chatUpdate) {
                     user.katana = 0
               if (!isNumber(user.katanadurability))
                     user.katanadurability = 0
-                    
               if (!isNumber(user.strength))
                     user.strength = 0
               if (!isNumber(user.mana))
@@ -331,7 +330,6 @@ export async function handler(chatUpdate) {
                     fishingroddurability: 0,
                     
                     // HN
-                    
                     as: 0,
                     paus: 0,
                     kepiting: 0,
@@ -369,8 +367,7 @@ export async function handler(chatUpdate) {
                     leleg: 0,
                     esteh: 0,
                     // Batas
-
-                    lastclaim: 0,
+                    lastberbru: 0,
                     lastadventure: 0,
                     lastfishing: 0,
                     lastdungeon: 0,
@@ -662,7 +659,10 @@ export async function handler(chatUpdate) {
                 m.isCommand = true
                 let xp = 'exp' in plugin ? parseInt(plugin.exp) : 17 // XP Earning per command
                 if (xp > 200)
-                    m.reply('Ngecit -_-') // Hehehe
+                    // m.reply('Ngecit -_-') // Hehehe
+                    this.sendButton(m.chat, `Jirr.. Ngecit -_- pake kalkulator.. Gpp lahh\nPencet dibawah, meresahkan`, wm, null, [
+        ['Ngechit', `/ngechit`]
+    ], m)
                 else
                     m.exp += xp
                 if (!isPrems && plugin.limit && global.db.data.users[m.sender].limit < plugin.limit * 1) {
