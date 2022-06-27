@@ -1,4 +1,7 @@
 // Tolong jangan bully saya bang,, saya cuman mau bisnis :)
+import fetch from 'node-fetch'
+import fs from 'fs'
+
 let handler = async(m, { conn, command, usedPrefix, args }) => {
         let pn = await fetch(`https://api.zacros.my.id/other/meme`)
         let pnn = await pn.json()

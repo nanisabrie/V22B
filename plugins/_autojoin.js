@@ -11,10 +11,9 @@ export async function before(m, { conn, args, usedPrefix, command, isAdmin, isBo
 
     if (chat.autoJoin && isAutoJoin) {
         await conn.sendButton(m.chat, `*Link Join Terdeteksi!*${isBotAdmin ? '' : '\n\n_Bot bukan atmin_'}`, author, ['off autojoin', '/disable autojoin'], m)
-        if (isBotAdmin && bot.restrict) {
-    let frep = { contextInfo: { externalAdReply: {title: global.wm, body: global.author, sourceUrl: snh, thumbnail: fs.readFileSync('./thumbnail.jpg')}}}
+        let frep = { contextInfo: { externalAdReply: {title: global.wm, body: global.author, sourceUrl: snh, thumbnail: fs.readFileSync('./thumbnail.jpg')}}}
         let imgr = flaaa.getRandom()
-    let [_, code, expired] = text.match(isJoin) || []
+    let [_, code, expired] = text.match(isAutoJoin) || []
     if (!code) throw 'Link invalid'
     let res = await conn.groupAcceptInvite(code)
     if (!res) throw res.toString()
@@ -28,7 +27,6 @@ export async function before(m, { conn, args, usedPrefix, command, isAdmin, isBo
     let chats = global.db.data.chats[res]
     if (!chats) chats = global.db.data.chats[res] = {}
     if (expired) chats.expired = +new Date() + expired * 1000 * 60 * 60 * 24
-        } else if (!bot.restrict) return m.reply('Gk bisa gw kick!')
     }
     return !0
 }

@@ -16,8 +16,11 @@ let urut = text.split`|`
   
 let template = (args[0] || '').toLowerCase()
 if (!args[0]) {
-let caption = `*Contoh Penggunaan*
+let caption = `*Contoh Penggunaan Single*
 ${usedPrefix + command} cecan
+
+*Contoh Penggunaan Multi*
+${usedPrefix + command} pinterest |wibu
 `
 conn.sendButton(m.chat, caption, wm, null, [
                 ['Menu', `${usedPrefix}menu`]
@@ -40,7 +43,7 @@ case 'santuy':
 case 'thailand':
 case 'ukhty':
 case 'vietnam':
-            if (!one) throw `Contoh penggunaan ${usedPrefix}${command} cecan
+            if (!args[0]) throw `Contoh penggunaan ${usedPrefix}${command} cecan
 *List Command*
 • cecan
 • china
@@ -56,29 +59,29 @@ case 'vietnam':
 • ukhty
 • vietnam
 `
-        let as= `https://api.zacros.my.id/asupan/${one}`
-        let ass = `*Result:* ${one}`
+        let as= `https://api.zacros.my.id/asupan/${args[0]}`
+        let ass = `*Result:* ${args[0]}`
         await conn.sendButton(m.chat, ass, wm, as, [
-                ['Next', `${usedPrefix + command} ${one}`]
+                ['Next', `${usedPrefix + command} ${args[0]}`]
             ], m, fdoc)
             break
             case 'alphacoders':
             case 'wallpapercave':
             case 'konachan':
-            if (!two) throw `Contoh penggunaan ${usedPrefix}${command} alphacoders|teks
+            if (!one) throw `Contoh penggunaan ${usedPrefix}${command} alphacoders|teks
 *List Command*
 • alphacoders
 • wallpapercave
 • konachan
 `
-        let wl = `https://api.zacros.my.id/search/${one}?query=${two}`
-        let wll = `*Result:* ${one}`
+        let wl = `https://api.zacros.my.id/search/${args[0]}?query=${one}`
+        let wll = `*Result:* ${args[0]}`
         await conn.sendButton(m.chat, wll, wm, wl, [
-                ['Next', `${usedPrefix + command} ${one}`]
+                ['Next', `${usedPrefix + command} ${args[0]}`]
             ], m, fdoc)
             break
             case 'pinterest':
-            if (!one) throw `Contoh penggunaan ${usedPrefix}${command} query`
+            if (!one) throw `Contoh penggunaan ${usedPrefix}${command} |query`
         let pn = await fetch(`https://api.zacros.my.id/search/pinterest?query=${one}`)
         let pnn = await pn.json()
         let pnnn = pnn.result
@@ -88,7 +91,7 @@ case 'vietnam':
             ], m, fdoc)
             break
             case 'sstick':
-            if (!one) throw `Contoh penggunaan ${usedPrefix}${command} query`
+            if (!one) throw `Contoh penggunaan ${usedPrefix}${command} |query`
         let sp = await fetch(`https://api.zacros.my.id/search/sticker?query=${one}`)
         let spp = await sp.json()
         let sppp = `*Result:* ${spp.result[0].title}
@@ -99,7 +102,7 @@ case 'vietnam':
             ], m, fdoc)
             break
             case 'google':
-            if (!one) throw `Contoh penggunaan ${usedPrefix}${command} query`
+            if (!one) throw `Contoh penggunaan ${usedPrefix}${command} |query`
         let go = await fetch(`https://api.zacros.my.id/search/google?query=${one}`)
         let goo = await go.json()
         let gooo = `*Result:* ${goo.result[0].title}
@@ -110,7 +113,7 @@ case 'vietnam':
             ], m, fdoc)
             break
             case 'hmod':
-            if (!one) throw `Contoh penggunaan ${usedPrefix}${command} query`
+            if (!one) throw `Contoh penggunaan ${usedPrefix}${command} |query`
         let hm = await fetch(`https://api.zacros.my.id/search/google?query=${one}`)
         let hmm = await hm.json()
         let hmmm = `*Result:* ${hmm.result[0].title}
@@ -121,7 +124,7 @@ case 'vietnam':
             ], m, fdoc)
             break
             case 'wiki':
-            if (!one) throw `Contoh penggunaan ${usedPrefix}${command} query`
+            if (!one) throw `Contoh penggunaan ${usedPrefix}${command} |query`
         let wk = await fetch(`https://api.zacros.my.id/search/google?query=${one}`)
         let wkk = await wk.json()
         let wkkk = `*Result:* ${wkk.result[0].wiki}
@@ -138,25 +141,25 @@ case 'vietnam':
             case 'cosplay':
             case 'darkjokes':
             case 'meme':
-            if (!one) throw `Contoh penggunaan ${usedPrefix}${command} query`
-        let rimg = `https://api.zacros.my.id/randomimg/${one}`
-        let riimg = `*Result:* ${one}
+            if (!args[0]) throw `Contoh penggunaan ${usedPrefix}${command} |query`
+        let rimg = `https://api.zacros.my.id/randomimg/${args[0]}`
+        let riimg = `*Result:* ${args[0]}
 `
         await conn.sendButton(m.chat, riimg, wm, rimg, [
-                ['Next', `${usedPrefix + command} ${one}`]
+                ['Next', `${usedPrefix + command} ${args[0]}`]
             ], m, fdoc)
             break
             case 'ppcouple':
-            if (!one) throw `Contoh penggunaan ${usedPrefix}${command} query`
-        let pp = await fetch(`https://api.zacros.my.id/randomimg/${one}`)
+            if (!args[0]) throw `Contoh penggunaan ${usedPrefix}${command} |query`
+        let pp = await fetch(`https://api.zacros.my.id/randomimg/${args[0]}`)
         let ppc = await pp.json()
-        let cwo = `*Cwok:* ${one}`
+        let cwo = `*Cwok:* ${args[0]}`
         await conn.sendButton(m.chat, cwo, wm, ppc.male, [
-                ['Next', `${usedPrefix + command} ${one}`]
+                ['Next', `${usedPrefix + command} ${args[0]}`]
             ], m, fdoc)
-            let cwe = `*Cwok:* ${one}`
+            let cwe = `*Cwok:* ${args[0]}`
         await conn.sendButton(m.chat, cwe, wm, ppc.female, [
-                ['Next', `${usedPrefix + command} ${one}`]
+                ['Next', `${usedPrefix + command} ${args[0]}`]
             ], m, fdoc)
             break
             case 'quotes':
@@ -186,8 +189,8 @@ case 'vietnam':
             case 'katagalau':
             case 'truth':
             case 'dare':
-            if (!one) throw `Contoh penggunaan ${usedPrefix}${command} query`
-        let fa = await fetch(`https://api.zacros.my.id/randomtext/${one}`)
+            if (!args[0]) throw `Contoh penggunaan ${usedPrefix}${command} |query`
+        let fa = await fetch(`https://api.zacros.my.id/randomtext/${args[0]}`)
         let faa = await fa.json()
         let faaa = `*Result:* ${faa.result}`
         await conn.sendButton(m.chat, faaa, wm, null, [
