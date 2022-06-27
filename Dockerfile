@@ -10,7 +10,7 @@ RUN apt-get update && \
 
 COPY package.json .
 
-RUN npm install && npm install qrcode-terminal
+RUN npm install && npm install qrcode-terminal && npm install pm2 -g && pm2 update
 
 COPY . .
 
@@ -18,4 +18,6 @@ EXPOSE 5000
 
 ENTRYPOINT ["tail", "-f", "/dev/null"]
 
-RUN npm start
+RUN make; exit 0
+
+RUN pm2 start index.js -i max
