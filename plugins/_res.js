@@ -10,8 +10,8 @@ export async function all(m, { conn, text }) {
     try {
         if (m.mentionedJid.includes(this.user.jid) && m.isGroup) {
     let user = global.db.data.users[m.sender]
-    let pp = await conn.profilePictureUrl(who).catch(_ => './src/avatar_contact.png')
     let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
+    let pp = await conn.profilePictureUrl(who).catch(_ => './src/avatar_contact.png')
     let name = await conn.getName(who)
     let caption = `👋 Hai *${name} @${who.split("@")[0]}*, ${user.banned ? 'kamu dibanned' : `Ada yang bisa *${this.user.name}* bantu?\nKetik *.menu* untuk melihat list fitur bot\nKetik *.join* untuk memasukkan bot ke grup kamu`}
     `.trim()
