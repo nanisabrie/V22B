@@ -852,13 +852,12 @@ export async function participantsUpdate({ id, participants, action }) {
   let gettext = await fetch(`https://raw.githubusercontent.com/fawwaz37/random/main/bijak.txt`)
   let restext = await gettext.text()
   let katarandom = restext.split('\n')
-                        
-    this.sendHydrated(id, text, wm + '\n\n' + botdate, action === 'add' ? wel.toBuffer() : lea.toBuffer(), gcwangsaf, (action == 'add' ? '👋 Welcome' : '👋 Bye'), null, null, [
+  
+  this.sendHydrated(id, text, wm + '\n\n' + botdate, action === 'add' ? wel.toBuffer() : lea.toBuffer(), gcwangsaf, (action == 'add' ? 'Hinata Group' : 'Nitip Gorengan'), user.split`@`[0], 'Telpon', [
       ['Menu', '/menu'],
       ['Test', '/ping'],
       ['Ok !\n\n' + katarandom.getRandom(), null]
     ], null, false, { mentions: [user] })
-
                       //  this.sendButton(id, text, author, action === 'add' ? wel.toBuffer() : lea.toBuffer(), [["Menu", ".menu"],["Owner", ".owner"]], null, false, { mentions: [user] })
                     }
                 }
