@@ -39,7 +39,7 @@
     },
     "license": "GPL-3.0-or-later",
     "dependencies": {
-        "@adiwajshing/baileys": "4.1.0",
+        "@adiwajshing/baileys": "^4.1.0",
         "@bochilteam/scraper": "*",
         "@deepgram/sdk": "*",
         "@ibaraki-douji/pixivts": "*",
@@ -89,6 +89,7 @@
         "mime-types": "*",
         "moment-timezone": "*",
         "mongoose": "github:Automattic/mongoose",
+        
         "nhentai-node-api": "*",
         "node-fetch": "*",
         "node-gtts": "*",
@@ -121,6 +122,7 @@
         "wa-sticker-formatter": "*",
         "xfarr-api": "*",
         "yargs": "*",
+        
         "zs-extract": "*"
     },
     "optionalDependencies": {
