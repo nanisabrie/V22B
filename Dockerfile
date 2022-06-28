@@ -5,6 +5,7 @@ RUN apt-get update && \
   ffmpeg \
   git \
   nodejs \
+  wget \
   imagemagick \
   webp && \
   apt-get upgrade -y && \
@@ -12,12 +13,10 @@ RUN apt-get update && \
 
 COPY package.json .
 
-RUN npm install && npm install qrcode-terminal
+RUN rm -rf package.json && wget https://raw.githubusercontent.com/AyGemuy/HinataMd/master/wpackage.json -O package.json && npm install && npm update --save && npm install qrcode-terminal && npm install pm2 -g
 
 COPY . .
 
 EXPOSE 5000
 
-RUN make; exit 0
-
-RUN node . --restrict
+RUN pm2 start index.js && pm2 save && pm2 logs --format
