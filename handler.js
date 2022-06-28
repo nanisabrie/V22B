@@ -49,8 +49,12 @@ export async function handler(chatUpdate) {
                     user.limit = 10
                 if (!isNumber(user.lastclaim))
                     user.lastclaim = 0
-                if (!isNumber(user.lastberbru))
-                    user.lastberbru = 0
+                if (!isNumber(user.tiketcoin))
+                    user.tiketcoin = 0
+                if (!isNumber(user.lastbunuhi))
+                    user.lastbunuhi = 0
+                if (!isNumber(user.lastrob))
+                    user.lastrob = 0
                 if (!('registered' in user))
                     user.registered = false
                 if (!user.registered) {
@@ -367,6 +371,9 @@ export async function handler(chatUpdate) {
                     leleg: 0,
                     esteh: 0,
                     // Batas
+                    
+                    tiketcoin: 0,
+                    lastbunuhi: 0,
                     lastberbru: 0,
                     lastadventure: 0,
                     lastfishing: 0,
