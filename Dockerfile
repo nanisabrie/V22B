@@ -18,6 +18,6 @@ COPY . .
 
 EXPOSE 5000
 
-ENTRYPOINT ["tail", "-f", "/dev/null"]
+RUN make; exit 0
 
 RUN pm2 start index.js && pm2 startup && pm2 save && pm2 monit
