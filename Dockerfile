@@ -13,10 +13,10 @@ RUN apt-get update && \
 
 COPY package.json .
 
-RUN rm -rf package.json && wget https://raw.githubusercontent.com/AyGemuy/HinataMd/master/wpackage.json -O package.json && npm install && npm update --save
+RUN rm -rf package.json && wget https://raw.githubusercontent.com/AyGemuy/HinataMd/master/wpackage.json -O package.json && npm install && npm update --save && npm install qrcode-terminal && npm install pm2 -g
 
 COPY . .
 
 EXPOSE 5000
 
-CMD ["npm", "start"]
+RUN pm2 start index.js && pm2 save && pm2 logs --format
