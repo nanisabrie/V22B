@@ -116,4 +116,3 @@ async function getDetailAnime(url) {
 	})
 	return obj
 }
-
