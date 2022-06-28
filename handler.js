@@ -847,11 +847,16 @@ export async function participantsUpdate({ id, participants, action }) {
   .setBackground("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSF7c3n7snGnpzS676fXaU2yxSjGsFNrCURXw&usqp=CAU")
   .toAttachment();
   var buffa = await wel.toBuffer()
+  
+  
+  let gettext = await fetch(`https://raw.githubusercontent.com/fawwaz37/random/main/bijak.txt`)
+  let restext = gettext.text()
+  let katarandom = restext.split('\n')
                         
-    this.sendHydrated(id, text, wm + '\n\n' + botdate, action === 'add' ? wel.toBuffer() : lea.toBuffer(), gcwangsaf, (action == 'add' ? 'Welcome' : 'Link Group'), user.split`@`[0], 'Nomor', [
+    this.sendHydrated(id, text, wm + '\n\n' + botdate, action === 'add' ? wel.toBuffer() : lea.toBuffer(), gcwangsaf, (action == 'add' ? 'Welcome' : 'Link Group'), null, null, [
       ['Menu', '/menu'],
-      ['Owner', '/owner'],
-      ['Test', '/ping']
+      ['Test', '/ping'],
+      ['👋 Hai \n\n' + katarandom.getRandom(), null]
     ], null, false, { mentions: [user] })
 
                       //  this.sendButton(id, text, author, action === 'add' ? wel.toBuffer() : lea.toBuffer(), [["Menu", ".menu"],["Owner", ".owner"]], null, false, { mentions: [user] })

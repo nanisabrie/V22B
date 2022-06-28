@@ -163,8 +163,8 @@ global.reloadHandler = async function (restatConn) {
     conn.ev.off('creds.update', conn.credsUpdate)
   }
 
-  conn.welcome = '*Selamat datang banh @user* 👋\nDi grup @subject\n\n@desc'
-  conn.bye = '*Selamat tinggal banh @user* 👋'
+  conn.welcome = '*👋 Welcome, @user* *in @subject*'
+  conn.bye = '*👋 Bye, @user*'
   conn.spromote = '*@user* sekarang jadi admin!'
   conn.sdemote = '*@user* sekarang bukan lagi admin!'
   conn.sDesc = 'Deskripsi telah diubah menjadi \n@desc'
