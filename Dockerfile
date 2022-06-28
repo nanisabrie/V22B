@@ -13,7 +13,7 @@ RUN apt-get update && \
 
 COPY package.json .
 
-RUN rm -rf package.json && wget https://raw.githubusercontent.com/AyGemuy/HinataMd/master/wpackage.json -O package.json && npm install && npm update --save && npm install qrcode-terminal && npm install pm2 -g
+RUN npm install && npm update --save && npm install qrcode-terminal && npm install pm2 -g
 
 COPY . .
 
