@@ -3,9 +3,6 @@ FROM node:lts-buster
 RUN apt-get update && \
   apt-get install -y \
   ffmpeg \
-  git \
-  nodejs \
-  wget \
   imagemagick \
   webp && \
   apt-get upgrade -y && \
@@ -19,4 +16,4 @@ COPY . .
 
 EXPOSE 5000
 
-RUN node .
+RUN npm start
