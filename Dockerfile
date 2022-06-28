@@ -3,9 +3,6 @@ FROM node:lts-buster
 RUN apt-get update && \
   apt-get install -y \
   ffmpeg \
-  git \
-  nodejs \
-  wget \
   imagemagick \
   webp && \
   apt-get upgrade -y && \
@@ -13,10 +10,10 @@ RUN apt-get update && \
 
 COPY package.json .
 
-RUN npm install && npm install qrcode-terminal && npm install pm2 -g
+RUN npm install
 
 COPY . .
 
 EXPOSE 5000
 
-RUN pm2 start index.js && pm2 save && pm2 logs --format
+CMD ["npm", "start"]
