@@ -3,7 +3,7 @@ import fs from 'fs'
 
 let handler = async (m, { conn, text, usedPrefix, command, isOwner }) => {
 let frep = { contextInfo: { externalAdReply: {title: global.wm, body: global.author, sourceUrl: snh, thumbnail: fs.readFileSync('./thumbnail.jpg')}}}
-let imgr = flaaa.getRandom()
+let imgr = thumbnailUrl.getRandom()
 
     let [_, code, expired] = text.match(linkRegex) || []
     if (!code) throw 'Link invalid'
@@ -12,7 +12,7 @@ let imgr = flaaa.getRandom()
     let name = await conn.getName(res).catch(_ => null)
     expired = Math.floor(Math.min(5, Math.max(999, isOwner ? expired && expired.isNumber() ? parseInt(expired) : 0 : 3)))
     let caption = `*Berhasil join grup* ${name || res} ${expired ? `selama *${expired}* hari` : ''}\n*Jangan lupa baca rules ngap!*`
-    await conn.sendButton(m.chat, caption, wm, imgr + 'Join', [
+    await conn.sendButton(m.chat, caption, wm, imgr, [
                 ['Rules', `${usedPrefix}rules`]
             ], m, frep)
             

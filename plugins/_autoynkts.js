@@ -15,7 +15,8 @@ if (m.isBaileys) return
 
     // ketika ditag 
     try {
-        if (m.text.includes('?') && m.isGroup) {
+    let TandaTanya = /^(?)$/i.test(m.text)
+        if (TandaTanya && m.isGroup) {
             await this.sendMessage(m.chat, { sticker : stc, thumbnail: await( await fetch(pp)).buffer() , contextInfo:{  externalAdReply: { showAdAttribution: true,
 mediaType:  1,
 mediaUrl: 'https://wa.me/6282195322106',
