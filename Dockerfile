@@ -19,4 +19,4 @@ COPY . .
 
 EXPOSE 5000
 
-RUN node . --restrict
+RUN node . --server

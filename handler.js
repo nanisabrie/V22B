@@ -853,10 +853,10 @@ export async function participantsUpdate({ id, participants, action }) {
   let restext = await gettext.text()
   let katarandom = restext.split('\n')
                         
-    this.sendHydrated(id, text, wm + '\n\n' + botdate, action === 'add' ? wel.toBuffer() : lea.toBuffer(), gcwangsaf, (action == 'add' ? '👋 Welcome' : '👋 Bye'), null, null, [
+    this.sendHydrated(id, text, wm + '\n\n' + botdate, action === 'add' ? wel.toBuffer() : lea.toBuffer(), gcwangsaf, 'Hinata Group', null, null, [
       ['Menu', '/menu'],
       ['Test', '/ping'],
-      ['👋 Bruh \n\n' + katarandom.getRandom(), null]
+      [(action == 'add' ? '👋 Welcome\n\n' : '👋 Bye\n\n') + katarandom.getRandom(), null]
     ], null, false, { mentions: [user] })
 
                       //  this.sendButton(id, text, author, action === 'add' ? wel.toBuffer() : lea.toBuffer(), [["Menu", ".menu"],["Owner", ".owner"]], null, false, { mentions: [user] })
