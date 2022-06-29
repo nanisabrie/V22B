@@ -45,11 +45,14 @@ link: ${x.link}
         return m.reply(caption)
     }
     if (command == 'dlbokep') {
+    /*
     if (!text) throw `Contoh penggunaan ${usedPrefix}${command} link Xvideos`
-  let json = await fetch(`https://bx-hunter.herokuapp.com/api/xvideodetail?url=${text}&apikey=dno8pZJW`)
+  let json = await fetch(`https://appsdev.cyou/xv-ph-rt/api/?site_id=xvideos&video_id=${text}`)
   let jsons = await json.json()
   let x = jsons.result
 conn.sendFile(m.chat, x.files.high, 'asupan.mp4', x.title, m)
+*/
+m.reply('Source ilang')
 }
 
 }

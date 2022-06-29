@@ -171,8 +171,147 @@ let json = await fetch(`https://psbdmp.ws/api/v3/dump/${text}?key=6143730c1db586
                 ['Next', `${usedPrefix + command} ${text}`]
             ], m, fdoc)
 }
+
+if (command == 'gacha') {
+if (!text) throw `Masukkan ID
+${usedPrefix + command} indo
+
+*List*
+• ppc
+• indo
+• korea
+• china
+• malay
+ `
+            if (args[0] == 'ppc') {
+let jsn = await fetch(`https://ziy.herokuapp.com/api/gacha/ppcouple?apikey=xZiyy`)
+let json = await jsn.json()
+conn.sendButton(m.chat, 'Cewe', wm, json.result.female, [['🔄 Next 🔄', `${usedPrefix + command} ${args[0]}`]], m, fdoc)
+conn.sendButton(m.chat, 'Cowo', wm, json.result.male, [['🔄 Next 🔄', `${usedPrefix + command} ${args[0]}`]], m, fdoc)
+            }
+            if (args[0] == 'indo') {
+            let json = `https://ziy.herokuapp.com/api/gacha/indonesia?apikey=xZiyy`
+        let caption = `*Result:*`
+        await conn.sendButton(m.chat, caption, wm, json, [
+                ['Next', `${usedPrefix + command} ${args[0]}`]
+            ], m, fdoc)
+            }
+            if (args[0] == 'korea') {
+            let json = `https://ziy.herokuapp.com/api/gacha/korea?apikey=xZiyy`
+        let caption = `*Result:*`
+        await conn.sendButton(m.chat, caption, wm, json, [
+                ['Next', `${usedPrefix + command} ${args[0]}`]
+            ], m, fdoc)
+            }
+            if (args[0] == 'china') {
+            let json = `https://ziy.herokuapp.com/api/gacha/china?apikey=xZiyy`
+        let caption = `*Result:*`
+        await conn.sendButton(m.chat, caption, wm, json, [
+                ['Next', `${usedPrefix + command} ${args[0]}`]
+            ], m, fdoc)
+            }
+            if (args[0] == 'malay') {
+            let json = `https://ziy.herokuapp.com/api/gacha/malaysia?apikey=xZiyy`
+        let caption = `*Result:*`
+        await conn.sendButton(m.chat, caption, wm, json, [
+                ['Next', `${usedPrefix + command} ${args[0]}`]
+            ], m, fdoc)
+            }
 }
-handler.command = handler.help = ['urlscan', 'fotoduck', 'fotobear', 'fotodog', 'fotodog2', 'fotofox', 'fotoshibe', 'drinks', 'rules', 'repeat', 'repeat2', 'dmpsearch', 'dmpdown']
+
+if (command == 'ziy') {
+if (!text) throw `Masukkan ID
+${usedPrefix + command} ghea
+
+*List*
+• asupan2k
+• cecan2k
+• ghea
+• bocil
+• ukty
+• asupan
+• rika
+
+• girlneko teks|teks
+• sadboy teks|teks
+• kaneki teks
+• rem teks
+• lolimaker teks
+ `
+ 
+ // Asupan
+            if (args[0] == 'asupan2k') {
+            let json = `https://ziy.herokuapp.com/api/asupan2k?apikey=xZiyy`
+        let caption = `*Result:*`
+        await conn.sendButton(m.chat, caption, wm, json, [
+                ['Next', `${usedPrefix + command} ${args[0]}`]
+            ], m, fdoc)
+            }
+            if (args[0] == 'cecan2k') {
+            let json = `https://ziy.herokuapp.com/api/cecan2k?apikey=xZiyy`
+        let caption = `*Result:*`
+        await conn.sendButton(m.chat, caption, wm, json, [
+                ['Next', `${usedPrefix + command} ${args[0]}`]
+            ], m, fdoc)
+            }
+            if (args[0] == 'ghea') {
+            let jsn = await fetch(`https://ziy.herokuapp.com/api/asupan/ghea?apikey=xZiyy`)
+let json = await jsn.json()
+conn.sendButton(m.chat, 'ghea', wm, json.result.url, [['🔄 Next 🔄', `${usedPrefix + command} ${args[0]}`]], m, fdoc)
+            }
+            if (args[0] == 'bocil') {
+            let jsn = await fetch(`https://ziy.herokuapp.com/api/asupan/bocil?apikey=xZiyy`)
+let json = await jsn.json()
+conn.sendButton(m.chat, 'bocil', wm, json.result.url, [['🔄 Next 🔄', `${usedPrefix + command} ${args[0]}`]], m, fdoc)
+            }
+            if (args[0] == 'ukty') {
+            let jsn = await fetch(`https://ziy.herokuapp.com/api/asupan/ukty?apikey=xZiyy`)
+let json = await jsn.json()
+conn.sendButton(m.chat, 'ukty', wm, json.result.url, [['🔄 Next 🔄', `${usedPrefix + command} ${args[0]}`]], m, fdoc)
+            }
+            if (args[0] == 'asupan') {
+            let jsn = await fetch(`https://ziy.herokuapp.com/api/asupan?apikey=xZiyy`)
+let json = await jsn.json()
+conn.sendButton(m.chat, 'asupan', wm, json.result.result, [['🔄 Next 🔄', `${usedPrefix + command} ${args[0]}`]], m, fdoc)
+            }
+            if (args[0] == 'rika') {
+            let jsn = await fetch(`https://ziy.herokuapp.com/api/asupan/rikagusriani?apikey=xZiyy`)
+let json = await jsn.json()
+conn.sendButton(m.chat, 'rikagusriani', wm, json.result.url, [['🔄 Next 🔄', `${usedPrefix + command} ${args[0]}`]], m, fdoc)
+            }
+            
+            //Maker
+            if (args[0] == 'girlneko') {
+            let urut = text.split`|`
+  let text1 = urut[1]
+  let text2 = urut[2]
+            let jsn = `https://ziy.herokuapp.com/api/maker/girlneko?text1=${text1}&text2=${text2}&apikey=xZiyy`
+conn.sendButton(m.chat, 'girlneko', wm, jsn, [['🔄 Next 🔄', `${usedPrefix + command} ${args[0]}`]], m, fdoc)
+            }
+            if (args[0] == 'sadboy') {
+            let urut = text.split`|`
+  let text1 = urut[1]
+  let text2 = urut[2]
+            let jsn = `https://ziy.herokuapp.com/api/maker/sadboy?text1=${text1}&text2=${text2}&apikey=xZiyy`
+conn.sendButton(m.chat, 'sadboy', wm, jsn, [['🔄 Next 🔄', `${usedPrefix + command} ${args[0]}`]], m, fdoc)
+            }
+            if (args[0] == 'kaneki') {
+            let jsn = `https://ziy.herokuapp.com/api/maker/kaneki?nama=${text}&apikey=xZiyy`
+conn.sendButton(m.chat, 'kaneki', wm, jsn, [['🔄 Next 🔄', `${usedPrefix + command} ${args[0]}`]], m, fdoc)
+            }
+            if (args[0] == 'rem') {
+            let jsn = `https://ziy.herokuapp.com/api/maker/rem?nama=${text}&apikey=xZiyy`
+conn.sendButton(m.chat, 'rem', wm, jsn, [['🔄 Next 🔄', `${usedPrefix + command} ${args[0]}`]], m, fdoc)
+            }
+            if (args[0] == 'lolimaker') {
+            let jsn = `https://ziy.herokuapp.com/api/maker/lolimaker?nama=${text}&apikey=xZiyy`
+conn.sendButton(m.chat, 'lolimaker', wm, jsn, [['🔄 Next 🔄', `${usedPrefix + command} ${args[0]}`]], m, fdoc)
+            }
+}
+
+
+}
+handler.command = handler.help = ['urlscan', 'fotoduck', 'fotobear', 'fotodog', 'fotodog2', 'fotofox', 'fotoshibe', 'drinks', 'rules', 'repeat', 'repeat2', 'dmpsearch', 'dmpdown', 'gacha', 'ziy']
 handler.tags = ['random']
 
 export default handler
