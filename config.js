@@ -6,14 +6,10 @@ import moment from 'moment-timezone'
 
 /**Owner number**/
 global.owner = [
-  ['6282195322106', '️Owner1 Hinata-Md', true],
-  ['6282195322106', '️Owner2 Hinata-Md', true],
-  ['6282195322106', '️Owner3 Hinata-Md', true],
-  ['6282195322106', '️Owner4 Hinata-Md', true],
-  ['6282195322106', '️Owner5 Hinata-Md', true],
-  ['6282195322106', '️Owner6 Hinata-Md', true],
-  ['6282195322106', '️Owner Hinata-Md', true]
-  // [number, dia creator/owner?, dia developer?]
+  ['601161739141', '️Owner Sabrie', true],
+  ['601131261227', '️Owner Naz', true],
+  ['60102835580', '️Owner3 Hinata-Md', true],
+  ['60102650191',  // [number, dia creator/owner?, dia developer?]
 ] // Put your number here
 global.mods = [] // Want some help?
 global.prems = [] // Premium user has unlimited limit
@@ -68,15 +64,15 @@ let keyalpha = api[Math.floor(Math.random() * api.length)]
 global.apikeys = keyalpha
 
 /*============== NOMOR ==============*/
-global.nomorbot = '6285171216276'
-global.nomorown = '6282195322106'
-global.namebot = 'Hinata Md'
-global.nameown = 'Owner Hinata Md'
+global.nomorbot = 60102650191''
+global.nomorown = '601161739141'
+global.namebot = 'Asuna'
+global.nameown = 'Owner Asuna'
 
 /*============== WATERMARK ==============*/
-global.wm = '                「 Hinata-Md あ⁩ 」' //Main Watermark
-global.wm2 = '꒷︶꒷꒥꒷ ‧₊˚ ꒰ฅ˘օառɛʀ - chαn˘ฅ ꒱ ‧₊˚꒷︶꒷꒥꒷'
-global.wm3 = '⫹⫺ Hinata-Md'
+global.wm = '                「 Asuna あ⁩ 」' //Main Watermark
+global.wm2 = 'Asuna '
+global.wm3 = '⫹⫺ Asuna'
 global.botdate = `⫹⫺ Date :  ${moment.tz('Asia/Jakarta').format('DD/MM/YY')}`
 global.bottime = `𝗧 𝗜 𝗠 𝗘 : ${moment.tz('Asia/Jakarta').format('HH:mm:ss')}`
 global.titlebot = `⫹⫺ Time Sever : ${moment.tz('Asia/Jakarta').format('HH:mm:ss')}\n⫹⫺ Date Server :  ${moment.tz('Asia/Jakarta').format('DD/MM/YY')}`
