@@ -8,7 +8,7 @@ import moment from 'moment-timezone'
 global.owner = [
   ['601161739141', '️Owner Sabrie', true],
   ['601131261227', '️Owner Naz', true],
-  ['60102835580', '️Owner3 Hinata-Md', true],
+  ['60102835580', '️Owner Kuro', true],
   ['60102650191',  // [number, dia creator/owner?, dia developer?]
 ] // Put your number here
 global.mods = [] // Want some help?
