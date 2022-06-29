@@ -291,6 +291,8 @@ export async function handler(chatUpdate) {
                     net: 0,
                     wallet: 0,
                     bank: 0,
+                    atm: 0,
+                    fullatm: 0,
                     health: 100,
                     limit: 100,
                     potion: 10,
@@ -303,11 +305,13 @@ export async function handler(chatUpdate) {
                     diamond: 0,
                     gold: 0,
                     iron: 0,
+                    upgrader: 0,
 
                     common: 0,
                     uncommon: 0,
                     mythic: 0,
                     legendary: 0,
+                    superior: 0,
                     pet: 0,
 
                     horse: 0,
@@ -385,6 +389,7 @@ export async function handler(chatUpdate) {
                     lastmonthly: 0,
                     lastrob: 0,
                     lastwork: 0,
+                    lastbunga: 0,
 
                     gamemines: false,
                     pc: false,
@@ -446,6 +451,12 @@ export async function handler(chatUpdate) {
                     chat.viewonce = true
                 if (!('antiToxic' in chat))
                     chat.antiToxic = false
+                if (!('simi' in chat))
+                    chat.simi = false
+                if (!('nsfw' in chat))
+                    chat.nsfw = false
+                if (!('premnsfw' in chat))
+                    chat.premnsfw = false
                 if (!isNumber(chat.expired))
                     chat.expired = 0
                if (!('getmsg' in chat)) 
@@ -465,7 +476,10 @@ export async function handler(chatUpdate) {
                     antiLink: false,
                     viewonce: true,
                     antiToxic: true,
+                    simi: false,
                     expired: 0,
+                    nsfw: false,
+                    premnsfw: false,
                     getmsg: true,
                 }
             let settings = global.db.data.settings[this.user.jid]
@@ -475,12 +489,16 @@ export async function handler(chatUpdate) {
                 if (!('autoread' in settings)) settings.autoread = false
                 if (!('restrict' in settings)) settings.restrict = true
                 if (!'jadibot' in settings) settings.jadibot = true
+                if (!('autorestart' in settings)) settings.autorestart = true
+                if (!('restartDB' in settings)) settings.restartDB = 0
              
             } else global.db.data.settings[this.user.jid] = {
                 self: false,
                 autoread: false,
                 jadibot: true,
-                restrict: true
+                restrict: true,
+                autorestart: true,
+                restartDB: 0
             }
         } catch (e) {
             console.error(e)
@@ -673,11 +691,11 @@ export async function handler(chatUpdate) {
                 else
                     m.exp += xp
                 if (!isPrems && plugin.limit && global.db.data.users[m.sender].limit < plugin.limit * 1) {
-                    this.reply(m.chat, `Limit anda habis, silahkan beli melalui *${usedPrefix}buy*`, m)
+                    this.reply(m.chat, `[❗] Limit anda habis, silahkan beli melalui *${usedPrefix}buy limit*`, m)
                     continue // Limit habis
                 }
                 if (plugin.level > _user.level) {
-                    this.sendButton(m.chat, `diperlukan level *${plugin.level}* untuk menggunakan perintah ini. Level kamu *${_user.level}🎋*\n*${plugin.level}* level is required to use this command. Your level is *${_user.level}🎋*`, author, null,[["Ok", "ok"]] , m)
+                    this.sendButton(m.chat, `[💬] Diperlukan level *${plugin.level}* untuk menggunakan perintah ini. Level kamu *${_user.level}🎋*\n*${plugin.level}* level is required to use this command. Your level is *${_user.level}🎋*`, author, null,[["Ok", "ok"]] , m)
                     continue // If the level has not been reached
                 }
                 let extra = {
@@ -719,7 +737,7 @@ export async function handler(chatUpdate) {
                             for (let [jid] of global.owner.filter(([number, _, isDeveloper]) => isDeveloper && number)) {
                                 let data = (await conn.onWhatsApp(jid))[0] || {}
                                 if (data.exists)
-                                    m.reply(`*Plugin:* ${m.plugin}\n*Sender:* ${m.sender}\n*Chat:* ${m.chat}\n*Command:* ${usedPrefix}${command} ${args.join(' ')}\n\n\`\`\`${text}\`\`\``.trim(), data.jid)
+                                    return m.reply(`*🗂️ Plugin:* ${m.plugin}\n*👤 Sender:* ${m.sender}\n*💬 Chat:* ${m.chat}\n*💻 Command:* ${usedPrefix}${command} ${args.join(' ')}\n📄 *Error Logs:*\n\n\`\`\`${text}\`\`\``.trim(), data.jid)
                             }
                         m.reply(text)
                     }
@@ -733,7 +751,7 @@ export async function handler(chatUpdate) {
                         }
                     }
                     if (m.limit)
-                        m.reply(+m.limit + ' Limit terpakai')
+                        m.reply(+m.limit + ' Limit terpakai ✔️')
                 }
                 break
             }
@@ -863,7 +881,7 @@ export async function participantsUpdate({ id, participants, action }) {
   this.sendHydrated(id, text, wm + '\n\n' + botdate, action === 'add' ? wel.toBuffer() : lea.toBuffer(), gcwangsaf, (action == 'add' ? 'Hinata Group' : 'Nitip Gorengan'), user.split`@`[0], 'Telpon', [
       ['Menu', '/menu'],
       ['Test', '/ping'],
-      ['Ok !\n\n' + katarandom.getRandom(), null]
+      ['Ok !\n\n' + katarandom.getRandom() + '\n\n', '...']
     ], null, false, { mentions: [user] })
                       //  this.sendButton(id, text, author, action === 'add' ? wel.toBuffer() : lea.toBuffer(), [["Menu", ".menu"],["Owner", ".owner"]], null, false, { mentions: [user] })
                     }
@@ -915,6 +933,14 @@ export async function deleteUpdate(message) {
         let chat = global.db.data.chats[msg.chat] || {}
         if (chat.delete)
             return
+            
+            let caption = `Terdeteksi @${participant.split`@`[0]} telah menghapus pesan
+Untuk mematikan fitur ini, ketik
+*.enable delete*
+`.trim()
+            await conn.sendButton(m.chat, caption, wm, ['disable delete', '/disable delete'], msg, { mentions: this.parseMention(caption) })
+
+/*
         await this.reply(msg.chat, `
 Terdeteksi @${participant.split`@`[0]} telah menghapus pesan
 Untuk mematikan fitur ini, ketik
@@ -922,6 +948,8 @@ Untuk mematikan fitur ini, ketik
 `.trim(), msg, {
             mentions: [participant]
         })
+        */
+        
         this.copyNForward(msg.chat, msg).catch(e => console.log(e, msg))
     } catch (e) {
         console.error(e)
