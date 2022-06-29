@@ -65,7 +65,7 @@ let keyalpha = api[Math.floor(Math.random() * api.length)]
 global.apikeys = keyalpha
 
 /*============== NOMOR ==============*/
-global.nomorbot = 60102650191''
+global.nomorbot = '60102650191'
 global.nomorown = '601161739141'
 global.namebot = 'Asuna'
 global.nameown = 'Owner Asuna'
