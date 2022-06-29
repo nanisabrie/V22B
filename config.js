@@ -11,7 +11,7 @@ global.owner = [
   ['60102835580', '️Owner Kuro', true],
   ['60102650191', 'Asuna', true]
 // [number, dia creator/owner?, dia developer?]
-] // Put your number here
+// Put your number here
 global.mods = [] // Want some help?
 global.prems = [] // Premium user has unlimited limit
 global.girlfren = [] // Your gf/pacar
