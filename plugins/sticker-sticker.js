@@ -6,6 +6,8 @@ import { webp2png } from '../lib/webp2mp4.js'
 let handler = async (m, { conn, args, usedPrefix, command }) => {
   let stiker = false
   try {
+  let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
+    let name = await conn.getName(who)
     let q = m.quoted ? m.quoted : m
     let mime = (q.msg || q).mimetype || q.mediaType || ''
     if (/webp|image|video/g.test(mime)) {
@@ -18,14 +20,14 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
         else if (/image/g.test(mime)) out = await uploadImage(img)
         else if (/video/g.test(mime)) out = await uploadFile(img)
         if (typeof out !== 'string') out = await uploadImage(img)
-        stiker = await sticker(false, out, global.packname, global.author)
+        stiker = await sticker(false, out, global.packname, name)
       } catch (e) {
         console.error(e)
       } finally {
-        if (!stiker) stiker = await sticker(img, false, global.packname, global.author)
+        if (!stiker) stiker = await sticker(img, false, global.packname, name)
       }
     } else if (args[0]) {
-      if (isUrl(args[0])) stiker = await sticker(false, args[0], global.packname, global.author)
+      if (isUrl(args[0])) stiker = await sticker(false, args[0], global.packname, name)
       else return m.reply('URL tidak valid!')
     }
   } catch (e) {
