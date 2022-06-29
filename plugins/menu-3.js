@@ -32,9 +32,36 @@ _Jika Respon Tidak Muncul Kemungkinan Terjadi Error_
   after: `⌕ ❙❘❙❙❘❙❚❙❘❙❙❚❙❘❙❘❙❚❙❘❙❙❚❙❘❙❙❘❙❚❙❘ 
 `,
 }
-let handler = async (m, { conn, groupMetadata, usedPrefix: _p, __dirname, args }) => {
-  let tags
-	let teks = `${args[0]}`.toLowerCase()
+let handler = async (m, { conn, command, groupMetadata, usedPrefix: _p, __dirname, args }) => {
+let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
+    let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
+    let { exp, limit, level, role, money, lastclaim, lastweekly, registered, regTime, age, banned, pasangan } = global.db.data.users[who]
+    let { min, xp, max } = xpRange(level, global.multiplier)
+    let name = await conn.getName(who)
+    let pp = await conn.profilePictureUrl(who).catch(_ => './src/avatar_contact.png')
+    if (typeof global.db.data.users[who] == "undefined") {
+      global.db.data.users[who] = {
+        exp: 0,
+        limit: 10,
+        lastclaim: 0,
+        registered: false,
+        name: conn.getName(m.sender),
+        age: -1,
+        regTime: -1,
+        afk: -1,
+        afkReason: '',
+        banned: false,
+        level: 0,
+        lastweekly: 0,
+        role: 'Warrior V',
+        autolevelup: false,
+        money: 0,
+        pasangan: "",
+      }
+     }
+     let math = max - xp
+     let tags
+     let teks = `${args[0]}`.toLowerCase()
   let arrayMenu = ['all', 'absen', 'admin', 'advanced', 'anonymous', 'audio', 'Baileys', 'database', 'downloader', 'edukasi', 'fun', 'game', 'group', 'host', 'info', 'internet', 'jadian', 'jadibot', 'kerang', 'main', 'maker', 'nocategory', 'nsfw', 'nulis', 'owner', 'premium', 'primbon', 'quotes', 'quran', 'random', 'rpg', 'sticker', 'tools', 'vote', 'xp']
   if (!arrayMenu.includes(teks)) teks = '404'
   if (teks == 'all') tags = {
@@ -172,60 +199,65 @@ let handler = async (m, { conn, groupMetadata, usedPrefix: _p, __dirname, args }
   if (teks == 'xp') tags = {
     'xp': 'Exp & Limit'
   }
-  if (teks == '') tags = {
-    '': 'No Category'
+  if (teks == 'nocategory') tags = {
+    'nocategory': 'No Category'
   }
   
   
     try {
-    let desk = `Mungkin menu *${args[0]}* ini bisa membantu?`
+    let desk = `\n\nMungkin menu ini bisa membantu?`
       const sections = [
    {
 	title: `${htki} MENU ${htka}`,
 	rows: [
-	{title: `${emot} absen ${emot}`, rowId: ".menu3 absen", description: desk},
-	{title: `${emot} admin ${emot}`, rowId: ".menu3 admin", description: desk},
-	{title: `${emot} advanced ${emot}`, rowId: ".menu3 advanced", description: desk},
-	{title: `${emot} anonymous ${emot}`, rowId: ".menu3 anonymous", description: desk},
-	{title: `${emot} audio ${emot}`, rowId: ".menu3 audio", description: desk},
+	{title: `${emot} Absen ${emot}`, rowId: ".menu3 absen", description: desk},
+	{title: `${emot} Admin ${emot}`, rowId: ".menu3 admin", description: desk},
+	{title: `${emot} Advanced ${emot}`, rowId: ".menu3 advanced", description: desk},
+	{title: `${emot} Anonymous ${emot}`, rowId: ".menu3 anonymous", description: desk},
+	{title: `${emot} Audio ${emot}`, rowId: ".menu3 audio", description: desk},
 	{title: `${emot} Baileys ${emot}`, rowId: ".menu3 Baileys", description: desk},
-	{title: `${emot} database ${emot}`, rowId: ".menu3 database", description: desk},
-	{title: `${emot} downloader ${emot}`, rowId: ".menu3 downloader", description: desk},
-	{title: `${emot} edukasi ${emot}`, rowId: ".menu3 edukasi", description: desk},
-	{title: `${emot} fun ${emot}`, rowId: ".menu3 fun", description: desk},
-	{title: `${emot} game ${emot}`, rowId: ".menu3 game", description: desk},
-	{title: `${emot} group ${emot}`, rowId: ".menu3 group", description: desk},
-	{title: `${emot} host ${emot}`, rowId: ".menu3 host", description: desk},
-	{title: `${emot} info ${emot}`, rowId: ".menu3 info", description: desk},
-	{title: `${emot} internet ${emot}`, rowId: ".menu3 internet", description: desk},
-	{title: `${emot} jadian ${emot}`, rowId: ".menu3 jadian", description: desk},
-	{title: `${emot} jadibot ${emot}`, rowId: ".menu3 jadibot", description: desk},
-	{title: `${emot} kerang ${emot}`, rowId: ".menu3 kerang", description: desk},
-	{title: `${emot} main ${emot}`, rowId: ".menu3 main", description: desk},
-	{title: `${emot} maker ${emot}`, rowId: ".menu3 maker", description: desk},
-	{title: `${emot} nocategory ${emot}`, rowId: ".menu3 nocategory", description: desk},
-	{title: `${emot} nsfw ${emot}`, rowId: ".menu3 nsfw", description: desk},
-	{title: `${emot} nulis ${emot}`, rowId: ".menu3 nulis", description: desk},
-	{title: `${emot} owner ${emot}`, rowId: ".menu3 owner", description: desk},
-	{title: `${emot} premium ${emot}`, rowId: ".menu3 premium", description: desk},
-	{title: `${emot} primbon ${emot}`, rowId: ".menu3 primbon", description: desk},
-	{title: `${emot} quotes ${emot}`, rowId: ".menu3 quotes", description: desk},
-	{title: `${emot} quran ${emot}`, rowId: ".menu3 quran", description: desk},
-	{title: `${emot} random ${emot}`, rowId: ".menu3 random", description: desk},
-	{title: `${emot} rpg ${emot}`, rowId: ".menu3 rpg", description: desk},
-	{title: `${emot} sticker ${emot}`, rowId: ".menu3 sticker", description: desk},
-	{title: `${emot} tools ${emot}`, rowId: ".menu3 tools", description: desk},
-	{title: `${emot} vote ${emot}`, rowId: ".menu3 vote", description: desk},
-	{title: `${emot} xp ${emot}`, rowId: ".menu3 xp", description: desk}
+	{title: `${emot} Database ${emot}`, rowId: ".menu3 database", description: desk},
+	{title: `${emot} Downloader ${emot}`, rowId: ".menu3 downloader", description: desk},
+	{title: `${emot} Edukasi ${emot}`, rowId: ".menu3 edukasi", description: desk},
+	{title: `${emot} Fun ${emot}`, rowId: ".menu3 fun", description: desk},
+	{title: `${emot} Game ${emot}`, rowId: ".menu3 game", description: desk},
+	{title: `${emot} Group ${emot}`, rowId: ".menu3 group", description: desk},
+	{title: `${emot} Host ${emot}`, rowId: ".menu3 host", description: desk},
+	{title: `${emot} Info ${emot}`, rowId: ".menu3 info", description: desk},
+	{title: `${emot} Internet ${emot}`, rowId: ".menu3 internet", description: desk},
+	{title: `${emot} Jadian ${emot}`, rowId: ".menu3 jadian", description: desk},
+	{title: `${emot} Jadibot ${emot}`, rowId: ".menu3 jadibot", description: desk},
+	{title: `${emot} Kerang ${emot}`, rowId: ".menu3 kerang", description: desk},
+	{title: `${emot} Main ${emot}`, rowId: ".menu3 main", description: desk},
+	{title: `${emot} Maker ${emot}`, rowId: ".menu3 maker", description: desk},
+	{title: `${emot} Nocategory ${emot}`, rowId: ".menu3 nocategory", description: desk},
+	{title: `${emot} Nsfw ${emot}`, rowId: ".menu3 nsfw", description: desk},
+	{title: `${emot} Nulis ${emot}`, rowId: ".menu3 nulis", description: desk},
+	{title: `${emot} Owner ${emot}`, rowId: ".menu3 owner", description: desk},
+	{title: `${emot} Premium ${emot}`, rowId: ".menu3 premium", description: desk},
+	{title: `${emot} Primbon ${emot}`, rowId: ".menu3 primbon", description: desk},
+	{title: `${emot} Quotes ${emot}`, rowId: ".menu3 quotes", description: desk},
+	{title: `${emot} Quran ${emot}`, rowId: ".menu3 quran", description: desk},
+	{title: `${emot} Random ${emot}`, rowId: ".menu3 random", description: desk},
+	{title: `${emot} RPG ${emot}`, rowId: ".menu3 rpg", description: desk},
+	{title: `${emot} Sticker ${emot}`, rowId: ".menu3 sticker", description: desk},
+	{title: `${emot} Tools ${emot}`, rowId: ".menu3 tools", description: desk},
+	{title: `${emot} Vote ${emot}`, rowId: ".menu3 vote", description: desk},
+	{title: `${emot} XP ${emot}`, rowId: ".menu3 xp", description: desk}
 	]
   },
 ]
 
-let usrs = db.data.users[m.sender]
 let tek = `*Hai ${conn.getName(m.sender)}*
-*U S E R  I N F O*
-• *ɴᴀᴍᴇ:* ${usrs.registered ? usrs.name : conn.getName(m.sender)}
-• *ᴛᴀɢs:* @${m.sender.split`@`[0]}
+
+`*YOUR PROFILE*
+*🏷️ Nama:* *(${name})* ${registered ? '(' + name + ') ' : ''} ( @${who.split("@")[0]} )
+*❤️ Pasangan:*  ${pasangan ? `@${pasangan.split("@")[0]}` : `Tidak Punya`}
+*💲 Money:* *RP* ${money}
+*🏆 Level* ${level}
+*🎋 Role:* ${role}
+*🧬 XP:* TOTAL ${exp} (${exp - min} / ${xp}) [${math <= 0 ? `Siap untuk *${usedPrefix}levelup*` : `${math} XP lagi untuk levelup`}]
+*📨 Terdaftar:* ${registered ? 'Ya (' + new Date(regTime).toLocaleString() + ')' : 'Tidak'} ${lastclaim > 0 ? '\n*⏱️Terakhir Klaim:* ' + new Date(lastclaim).toLocaleString() : ''}\n\n Ketik ${usedPrefix}inv untuk melihat Inventory RPG`
 `
 const listMessage = {
   text: tek,
@@ -236,36 +268,11 @@ const listMessage = {
   sections
 }
   if (teks == '404') {
-  	return conn.sendMessage(m.chat, listMessage, { quoted: m, mentions: await conn.parseMention(tek), contextInfo:{ forwardingScore: 99999, isForwarded: true }})
+  	return conn.sendMessage(m.chat, listMessage, { quoted: m, mentions: await conn.parseMention(tek), contextInfo: {forwardingScore: 99999, isForwarded: true, externalAdReply: {showAdAttribution: true, title: global.wm, body: global.author, sourceUrl: snh, thumbnail: fs.readFileSync('./thumbnail.jpg')}}})
     }
     
     let _package = JSON.parse(await promises.readFile(join(__dirname, '../package.json')).catch(_ => ({}))) || {}
-    let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
-    let { exp, limit, level, role, money, lastclaim, lastweekly, registered, regTime, age, banned, pasangan } = global.db.data.users[who]
-    let { min, xp, max } = xpRange(level, global.multiplier)
-    let name = await conn.getName(who)
-    let pp = await conn.profilePictureUrl(who).catch(_ => './src/avatar_contact.png')
-    if (typeof global.db.data.users[who] == "undefined") {
-      global.db.data.users[who] = {
-        exp: 0,
-        limit: 10,
-        lastclaim: 0,
-        registered: false,
-        name: conn.getName(m.sender),
-        age: -1,
-        regTime: -1,
-        afk: -1,
-        afkReason: '',
-        banned: false,
-        level: 0,
-        lastweekly: 0,
-        role: 'Warrior V',
-        autolevelup: false,
-        money: 0,
-        pasangan: "",
-      }
-     }
-     let math = max - xp
+    
     let totalfeatures = Object.values(global.plugins).filter(
     (v) => v.help && v.tags
   ).length;
