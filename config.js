@@ -109,7 +109,7 @@ global.snh = 'https://github.com/AyGemuy'
 
 /*============== HENTAI ==============*/ 
 //OPTIONS
-global.optsnsfw = true // Untuk mematikan Dan Menyalakan Nsfw
+global.optsnsfw = false // Untuk mematikan Dan Menyalakan Nsfw
 global.premnsfw = true // Nsfw Mode Premium?
 
 //Ini cuma simpenan owner kanna kok :v
