@@ -361,9 +361,9 @@ global.htjava = '⫹⫺' //hiasan Doang :v
 
 /*============== STICKER WM ==============*/
 global.stickpack = '.'
-global.stickauth = `☂︎ Asuna\n⫹⫺ Whatsapp BOT\nwa.me/${global.nomorbot}`
+global.stickauth = `☂︎ 𝙬𝙞𝙗𝙪♡\n⫹⫺ Whatsapp BOT\nwa.me/${global.nomorbot}`
 global.packname = 'Created By'
-global.author = "Asuna"
+global.author = "𝙬𝙞𝙗𝙪♡"
 global.multiplier = 69 // The higher, The harder levelup
 
 /*============== ERR ==============*/
@@ -372,7 +372,7 @@ global.wait = 'Wait...'
 global.render = 'Render...'
 global.webs = 'https://s.id/Cerdasin62/'//Your Website
 global.logo = "https://i.pinimg.com/564x/1d/10/8e/1d108e56fb96be61d9b48f7e17dd95b7.jpg"//Your logo
-global.gcwangsaf = "https://chat.whatsapp.com/IUdX6OdplQ91dGnkVE4Eik"//Link Group whatsapp
+global.gcwangsaf = "https://chat.whatsapp.com/DtyPenO5Rha7yTWqr5gR8J"//Link Group whatsapp
 
 /*============== PAYMENT ==============*/
 global.umobile = ["01161739141"]
