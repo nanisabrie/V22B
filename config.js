@@ -9,7 +9,7 @@ global.owner = [
   ['601161739141', '️Owner Sabrie', true],
   ['601131261227', '️Owner Naz', true],
   ['60102835580', '️Owner Kuro', true],
-  ['60102650191', 'Asuna', true]
+  ['60102650191', '𝙬𝙞𝙗𝙪♡', true]
    // [number, dia creator/owner?, dia developer?]
  ] // Put your number here
 global.mods = [] // Want some help?
@@ -67,13 +67,13 @@ global.apikeys = keyalpha
 /*============== NOMOR ==============*/
 global.nomorbot = '60102650191'
 global.nomorown = '601161739141'
-global.namebot = 'Asuna'
-global.nameown = 'Owner Asuna'
+global.namebot = '𝙬𝙞𝙗𝙪♡'
+global.nameown = 'Owner 𝙬𝙞𝙗𝙪♡'
 
 /*============== WATERMARK ==============*/
-global.wm = '                「 Asuna あ⁩ 」' //Main Watermark
-global.wm2 = 'Asuna '
-global.wm3 = '⫹⫺ Asuna'
+global.wm = '                「 𝙬𝙞𝙗𝙪♡⁩ 」' //Main Watermark
+global.wm2 = '𝙬𝙞𝙗𝙪♡ '
+global.wm3 = '𝙬𝙞𝙗𝙪♡'
 global.botdate = `⫹⫺ Date :  ${moment.tz('Asia/Jakarta').format('DD/MM/YY')}`
 global.bottime = `𝗧 𝗜 𝗠 𝗘 : ${moment.tz('Asia/Jakarta').format('HH:mm:ss')}`
 global.titlebot = `⫹⫺ Time Sever : ${moment.tz('Asia/Jakarta').format('HH:mm:ss')}\n⫹⫺ Date Server :  ${moment.tz('Asia/Jakarta').format('DD/MM/YY')}`
